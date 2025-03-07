@@ -169,6 +169,42 @@ export default function ServicesPage() {
             </div>
           </div>
         </div>
+        <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
+        <div className="max-w-4xl mx-auto px-30 py-6">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="shrink-0">
+              {/* Replace with your own icon/image for Custom Service */}
+              <Image
+                src="/customservice.svg"
+                alt="Custom Service"
+                width={80}
+                height={80}
+                className="mx-auto md:mx-0"
+              />
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-green-800 mb-2">
+                Custom Service
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-green-900 list-none">
+                <li>
+                  <strong>Personalized Care:</strong> Not every pet care need
+                  fits a standard package.
+                </li>
+                <li>
+                  <strong>Tailored Scheduling:</strong> Call us and we’ll work
+                  with you to accommodate your unique requirements.
+                </li>
+                <li>
+                  <strong>Flexible Options:</strong> Whether it’s a special
+                  event, irregular schedule, or extra service, we customize our
+                  care to meet your pet’s needs.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
         <div className="mx-auto mt-2 h-0.5 w-3/4 max-w-lg"></div>
         <div className="max-w-4xl mx-auto my-6 p-6 bg-orange-100 rounded-md text-center shadow">
           <h2 className="text-2xl font-bold text-green-800 mb-2">Pricing</h2>

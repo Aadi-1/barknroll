@@ -42,7 +42,10 @@ export default function Home() {
           <div className="flex flex-row  gap-4 pt-10 ">
             <a href="/contact">
               <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors">
-                New Client? Book your Consulation
+                New Client?{" "}
+                <span className="underline underline-offset-3">
+                  Book your Consultation
+                </span>
               </span>
             </a>
             <a
@@ -50,7 +53,8 @@ export default function Home() {
               target="_blank"
             >
               <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors">
-                Returning Client? Log In
+                Returning Client?{" "}
+                <span className="underline underline-offset-3">Log In</span>
               </span>
             </a>
           </div>
