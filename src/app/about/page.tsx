@@ -61,7 +61,7 @@ export default function About() {
         </div>
 
         {/* Team Member 2 */}
-        <div className="flex flex-col md:flex-row-reverse items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="md:w-1/3">
             <div className="relative w-full h-64">
               <Image
@@ -105,7 +105,7 @@ export default function About() {
         </div>
 
         {/* Team Member 4 */}
-        <div className="flex flex-col md:flex-row-reverse items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="md:w-1/3">
             <div className="relative w-full h-64">
               <Image

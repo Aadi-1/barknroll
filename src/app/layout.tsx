@@ -56,7 +56,7 @@ export default function RootLayout({
               <a href="/services">Services</a>
               <a href="/about">About Us</a>
 
-              <a href="/contact">Contact Us</a>
+              <a href="/contact">Contact Us/FAQ</a>
             </div>
           </nav>
         </div>

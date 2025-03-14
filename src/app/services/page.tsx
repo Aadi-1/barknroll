@@ -4,7 +4,7 @@ export default function ServicesPage() {
   return (
     <main className=" min-h-screen">
       {/* Container */}
-      <section className=" mx-auto px-6 py-12 bg-orange-100">
+      <section className=" mx-auto px-6 py-12 bg-orange-100 border-b border-green-700">
         {/* Heading */}
         <h1 className="text-3xl text-green-800 pt-5 text-center">
           Our Services
@@ -175,7 +175,7 @@ export default function ServicesPage() {
             <div className="shrink-0">
               {/* Replace with your own icon/image for Custom Service */}
               <Image
-                src="/customservice.svg"
+                src="/customservice1.svg"
                 alt="Custom Service"
                 width={80}
                 height={80}
@@ -206,7 +206,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="mx-auto mt-2 h-0.5 w-3/4 max-w-lg"></div>
-        <div className="max-w-4xl mx-auto my-6 p-6 bg-orange-100 rounded-md text-center shadow">
+        <div className="max-w-4xl mx-auto my-6 p-6 bg-orange-100 rounded-md text-center shadow border-1 ">
           <h2 className="text-2xl font-bold text-green-800 mb-2">Pricing</h2>
           <p className="text-green-900 mb-4">
             All services are customized to your pet’s needs. Contact us for a
