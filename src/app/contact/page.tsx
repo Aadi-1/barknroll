@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
 
@@ -6,7 +8,46 @@ const dancingScript = Dancing_Script({
   weight: "700", // Adjust weight as needed
 });
 
-export default function ContactPage() {
+export default function Contact() {
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("sending");
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      "contact-preference": formData.get("contact-preference"),
+      service: formData.get("service"),
+      message: formData.get("message"),
+      schedule: formData.get("schedule"),
+      newsletter: formData.get("newsletter") === "on",
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus("error");
+    }
+  };
+
   return (
     <main className="min-h-screen bg-[#fff5e6] text-[#006400]">
       {/* Hero Section */}
@@ -17,9 +58,13 @@ export default function ContactPage() {
           Have Questions or Ready to Book?
         </h1>
         <p className="text-lg md:text-xl max-w-3xl mx-auto">
-          We're excited to hear from you and meet your furry friends!
-          <br /> Fill out our contact form, give us a call, or send us an email
-          – whatever works best for you and your pet.
+          <br /> Fill out our contact form or give us a call at{" "}
+          <a
+            href="tel:+18054049981"
+            className="text-green-800 underline underline-offset-5"
+          >
+            555-123-4567
+          </a>
         </p>
       </section>
 
@@ -31,7 +76,10 @@ export default function ContactPage() {
             Get in Touch
             <div className="mx-auto mt-1 h-0.5 w-1/6 bg-yellow-500"></div>
           </h2>
-          <form className="bg-white p-6 rounded-xl shadow space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="bg-white p-6 rounded-xl shadow space-y-6"
+          >
             {/* Name and Email */}
             <div className="md:flex gap-4">
               <div className="md:w-1/2 mb-4 md:mb-0">
@@ -110,6 +158,7 @@ export default function ContactPage() {
                 <option value="">Please select a service</option>
                 <option value="dog-walking">Dog Walking</option>
                 <option value="pet-sitting">Pet Sitting</option>
+                <option value="bedandbreakfast">Bed n' Breakfast</option>
                 <option value="overnight">Overnight Care</option>
                 <option value="other">Other (please specify)</option>
               </select>
@@ -177,23 +226,38 @@ export default function ContactPage() {
               <div className="flex items-start gap-3 mb-4 justify-center">
                 <div>
                   <h4 className="font-semibold">Phone</h4>
-                  <p>(555) 123-4567</p>
+                  <a
+                    href="tel:+18054049981"
+                    className="text-green-800 underline underline-offset-5"
+                  >
+                    555-123-4567
+                  </a>
                 </div>
               </div>
               {/* Email */}
               <div className="flex items-start gap-3 mb-4 justify-center">
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <p>hello@barknroll.com</p>
+                  <a
+                    href="mailto:barknrollpetcare@gmail.com"
+                    className="text-green-800 underline underline-offset-5"
+                  >
+                    barknrollpetcare@gmail.com
+                  </a>
                 </div>
               </div>
               {/* Hours */}
               <div className="flex items-start gap-3 mb-4 justify-center">
                 <div>
                   <h4 className="font-semibold">Hours of Operation</h4>
-                  <p>Office: Mon-Fri, 9am-6pm</p>
-                  <p>Service: 7 days, 6am-10pm</p>
-                  <p>Overnight: Available upon request</p>
+                  <div className="text-lg">
+                    <p>
+                      Services: 7 days, 7am-9pm <br />
+                      After 9pm: Available upon request
+                    </p>
+                    <p>Overnight: Available upon request</p>
+                    <p>Holidays: Extra 10% fee on all services</p>
+                  </div>
                 </div>
               </div>
               {/* Social Links */}
@@ -206,7 +270,8 @@ export default function ContactPage() {
                   FB
                 </Link>
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/barknroll_petcare/"
+                  target="_blank"
                   className="w-9 h-9 bg-[#006400] text-white rounded-full flex items-center justify-center hover:scale-110 transition"
                 >
                   IG
@@ -246,13 +311,11 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* FAQ Item 1 */}
           <div className="bg-white p-6 rounded-xl shadow">
-            <h3 className="text-xl font-semibold mb-2">
-              Are you insured and bonded?
-            </h3>
+            <h3 className="text-xl font-semibold mb-2">Are you insured?</h3>
             <p className="leading-relaxed">
-              Yes! All of our staff members are fully insured, bonded, and have
-              undergone thorough background checks. We&apos;re also certified in
-              pet first aid.
+              Yes! All of our staff members are fully insured and have undergone
+              thorough background checks. We&apos;re also certified in pet first
+              aid.
             </p>
           </div>
           {/* FAQ Item 2 */}
@@ -262,8 +325,8 @@ export default function ContactPage() {
             </h3>
             <p className="leading-relaxed">
               We accept various payment methods including credit/debit cards,
-              e-transfers, and mobile payments. Payment is typically due at the
-              time of booking.
+              Venmo/Zelle, and payment through client portal. Payment is
+              typically due at the time of booking.
             </p>
           </div>
           {/* FAQ Item 3 */}
@@ -272,9 +335,9 @@ export default function ContactPage() {
               Do you offer services on holidays?
             </h3>
             <p className="leading-relaxed">
-              Yes, we provide pet care 365 days a year, including holidays.
-              There may be a small additional fee. Please book early as these
-              dates fill up quickly!
+              Yes, we provide pet care 365 days a year, including holidays w/ a
+              10% additional fee. Please book early as these dates fill up
+              quickly!
             </p>
           </div>
           {/* FAQ Item 4 */}

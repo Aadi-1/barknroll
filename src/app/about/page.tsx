@@ -156,7 +156,7 @@ export default function About() {
             Bark n' Roll Pet Care was born from Jason's dream to create a
             service that treats animals like family, not just clients. What
             began as a solo operation has grown into a trusted team serving the
-            Simi Valley area
+            Simi Valley area.
           </p>
           <p className="mb-4 leading-relaxed text-lg">
             We believe every pet deserves the highest quality care tailored to

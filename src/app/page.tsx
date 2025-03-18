@@ -15,27 +15,72 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="w-full">
+    <main className="w-full overflow-x-hidden">
       <div>
-        <section className="w-full min-h-[90vh] flex flex-col bg-orange-100  items-center  border-b border-black">
+        <section className="relative w-full min-h-[90vh] flex flex-col bg-orange-100  items-center  border-b border-black">
+          <Image
+            src="/pawprintbackground.svg"
+            alt="Paw Print"
+            width={450}
+            height={50}
+            className="
+              hidden 
+              sm:block 
+              absolute 
+              top-10 
+              left-8 
+              opacity-30 
+              rotate-6
+            "
+          />
+          <Image
+            src="/pawprintbackground.svg"
+            alt="Paw Print"
+            width={350}
+            height={60}
+            className="
+              hidden 
+              md:block 
+              absolute 
+              top-1/4 
+              right-1 
+              opacity-20 
+              rotate-30
+            "
+          />
+          <Image
+            src="/pawprintbackground.svg"
+            alt="Paw Print"
+            width={275}
+            height={40}
+            className="
+              hidden
+              md:block
+              absolute
+              bottom-20
+              left-10
+              opacity-30
+              -rotate-20
+            "
+          />
           <div>
             <Image
-              src="/barknroll.png" // image from public folder
-              width={350}
-              height={350}
+              src="/bnrlogoborder2.svg" // image from public folder
+              width={370}
+              height={370}
               alt="Bark n' Roll Logo"
-              className="mx-auto"
+              className="mx-auto "
             />
           </div>
           <div className="flex">
             <h1
-              className={`${dancingScript.className} text-5xl text-green-800 font-weight:100`}
+              className={`${dancingScript.className} text-5xl text-green-700 font-weight:100 logo hidden md:block`}
             >
-              We let the good times roll, one wag at a time!{" "}
+              For all your furry, feathered, and finned friends’ needs!{" "}
             </h1>
           </div>
           <div className="flex ">
-            <h1 className="text-green-800 pt-8 text-2xl ">
+            <h1 className="text-green-700 pt-8 text-2xl italic ">
               Pet Sitting, Dog Walking & More in the Simi Valley Area!
             </h1>
           </div>
@@ -82,8 +127,10 @@ export default function Home() {
                   Pressed for time?
                 </span>
                 <br />
-                Our 30, 45, or 60‐minute walks give your pup the exercise, fun,
-                and focus they crave.
+                <span className="block text-center text-xl ">
+                  Our 30, 45, or 60‐minute walks give your pup the exercise,
+                  fun, and focus they crave.
+                </span>
               </p>
             </div>
             <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-700 bg-white shadow-sm p-4">
@@ -99,8 +146,11 @@ export default function Home() {
                 <span className="block text-center font-semibold">
                   Busy day ahead?
                 </span>
-                <br /> Our 30, 45, or 60‐minute check‐ins include feeding and
-                playtime, keeping your furry friend relaxed and secure.
+                <br />
+                <span className="block text-center text-xl ">
+                  Our 30, 45, or 60‐minute check‐ins include feeding and
+                  playtime, keeping your furry friend relaxed and secure.
+                </span>
               </p>
             </div>
             <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-700 bg-white shadow-sm p-4">
@@ -116,14 +166,17 @@ export default function Home() {
                 <span className="block text-center font-semibold">
                   Going away for a night?
                 </span>
-                <br /> We’ll keep your pet comfy and content with bedtime
-                check‐ins and early‐morning walks.
+                <br />
+                <span className="block text-center text-xl">
+                  We’ll keep your pet comfy and content with bedtime check‐ins
+                  and early‐morning walks.
+                </span>
               </p>
             </div>
           </div>
           <div>
             <a href="/services">
-              <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors">
+              <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-green-800 transition-colors">
                 Learn More
               </span>
             </a>

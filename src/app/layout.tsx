@@ -41,22 +41,42 @@ export default function RootLayout({
           />
         </Head>
         {/* Navbar */}
-        <div className="bg-gradient-to-l from-green-100 to-white text-green-800 shadow-md">
-          <nav className="flex items-center justify-between px-8 py-4">
+        <div className="bg-gradient-to-l from-green-100 to-white text-green-800 shadow-lg border-b">
+          <nav className="flex items-center justify-between px-8 py-4 ">
             <div className="flex items-center gap-3">
               <a href="/">
-                <h1 className={`${dancingScript.className} text-3xl font-bold`}>
+                <h1
+                  className={`${dancingScript.className} text-3xl font-bold logo hidden md:block`}
+                >
                   Bark n' Roll Pet Care
                 </h1>
               </a>
             </div>
             {/* Navigation Links */}
             <div className="flex gap-6 text-lg font-medium ">
-              <a href="/">Home</a>
-              <a href="/services">Services</a>
-              <a href="/about">About Us</a>
+              <a href="/" className="underline decoration-2 underline-offset-3">
+                Home
+              </a>
 
-              <a href="/contact">Contact Us/FAQ</a>
+              <a
+                href="/services"
+                className="underline decoration-2 underline-offset-3"
+              >
+                Services
+              </a>
+              <a
+                href="/about"
+                className="underline decoration-2 underline-offset-3"
+              >
+                About Us
+              </a>
+
+              <a
+                href="/contact"
+                className="underline decoration-2 underline-offset-3"
+              >
+                Contact Us/FAQ
+              </a>
             </div>
           </nav>
         </div>

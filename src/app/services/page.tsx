@@ -6,7 +6,7 @@ export default function ServicesPage() {
       {/* Container */}
       <section className=" mx-auto px-6 py-12 bg-orange-100 border-b border-green-700">
         {/* Heading */}
-        <h1 className="text-3xl text-green-800 pt-5 text-center">
+        <h1 className="text-3xl text-green-800 pt-5 text-center italic">
           Our Services
           <div className="mx-auto mt-2 h-0.5 w-1/10 bg-yellow-500"></div>
         </h1>
@@ -145,7 +145,7 @@ export default function ServicesPage() {
                 </li>
                 <li>
                   <strong>Dinner Break (7:00–7:30 PM):</strong> Our caregiver
-                  takes a short 30- to 45‑minute break to grab dinner.
+                  takes a short 30 - 45‑minute break to grab dinner.
                 </li>
                 <li>
                   <strong>
@@ -190,10 +190,6 @@ export default function ServicesPage() {
                 <li>
                   <strong>Personalized Care:</strong> Not every pet care need
                   fits a standard package.
-                </li>
-                <li>
-                  <strong>Tailored Scheduling:</strong> Call us and we’ll work
-                  with you to accommodate your unique requirements.
                 </li>
                 <li>
                   <strong>Flexible Options:</strong> Whether it’s a special
