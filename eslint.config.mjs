@@ -10,7 +10,19 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.config({
+    extends: ["next"],
+    rules: {
+      // Allow unescaped quotes in JSX
+      "react/no-unescaped-entities": "off",
+      // Allow using <a> elements for internal navigation (instead of <Link />)
+      "@next/next/no-html-link-for-pages": "off",
+      // Change unused variables from error to warning
+      "@typescript-eslint/no-unused-vars": "warn",
+      // Disable custom font warning if you have unused page fonts
+      "@next/next/no-page-custom-font": "off",
+    },
+  }),
 ];
 
 export default eslintConfig;

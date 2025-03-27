@@ -14,7 +14,6 @@ const petImages = [
 
 export default function PetCarousel() {
   // Embla settings
-  const options = { containScroll: false };
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Fade(),
     Autoplay({ delay: 2500 }),
