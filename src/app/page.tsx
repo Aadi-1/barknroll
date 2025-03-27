@@ -210,7 +210,7 @@ export default function Home() {
         </section>
 
         <PetCarousel />
-        <section className="bg-orange-100 px-8 py-6">
+        <section className="bg-orange-100 px-8 py-6 border-b border-black">
           <h2 className="text-2xl text-center font-semibold text-green-800 mb-4">
             Our Insurance Partners
             <div className="mx-auto mt-2 h-0.5 w-1/6 bg-yellow-500"></div>

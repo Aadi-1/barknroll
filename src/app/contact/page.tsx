@@ -5,19 +5,21 @@ import { Dancing_Script } from "next/font/google";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
-  weight: "700", // Adjust weight as needed
+  weight: "700",
 });
 
 export default function Contact() {
   const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
+    "idle" | "sending" | "success" | "error" | "tooMany"
   >("idle");
+  const [serverMessage, setServerMessage] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget; // Save the reference here
     setStatus("sending");
 
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(form);
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -36,9 +38,17 @@ export default function Contact() {
         body: JSON.stringify(data),
       });
 
-      if (res.ok) {
+      if (res.status === 429) {
+        // Too many submissions
+        const body = await res.json();
+        console.log("Received 429 response:", body); // Debug log
+        setServerMessage(body.message);
+        setStatus("tooMany");
+      } else if (res.ok) {
         setStatus("success");
-        e.currentTarget.reset();
+        form.reset();
+        // Clear the success message after a delay
+        setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
       }
@@ -53,12 +63,12 @@ export default function Contact() {
       {/* Hero Section */}
       <section className="py-10 px-4 text-center">
         <h1
-          className={`${dancingScript.className} text-4xl md:text-5xl mb-6 text-green-800 font-weight:100`}
+          className={`${dancingScript.className} text-4xl md:text-5xl mb-6 text-green-800`}
         >
           Have Questions or Ready to Book?
         </h1>
         <p className="text-lg md:text-xl max-w-3xl mx-auto">
-          <br /> Fill out our contact form or give us a call at{" "}
+          Fill out our contact form or give us a call at{" "}
           <a
             href="tel:+18054049981"
             className="text-green-800 underline underline-offset-5"
@@ -70,9 +80,8 @@ export default function Contact() {
 
       {/* Contact Container */}
       <section className="max-w-6xl mx-auto px-4 py-8 flex flex-wrap gap-10 text-center justify-center">
-        {/* Contact Form Section */}
         <div className="contact-form-section w-full lg:w-2/3">
-          <h2 className="text-3xl font-bold mb-6 ">
+          <h2 className="text-3xl font-bold mb-6">
             Get in Touch
             <div className="mx-auto mt-1 h-0.5 w-1/6 bg-yellow-500"></div>
           </h2>
@@ -80,6 +89,7 @@ export default function Contact() {
             onSubmit={handleSubmit}
             className="bg-white p-6 rounded-xl shadow space-y-6"
           >
+            {/* form fields */}
             {/* Name and Email */}
             <div className="md:flex gap-4">
               <div className="md:w-1/2 mb-4 md:mb-0">
@@ -141,10 +151,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Address */}
-
-            {/* Pet Name / Pet Type */}
-
             {/* Service Interested In */}
             <div>
               <label htmlFor="service" className="block font-bold mb-2">
@@ -203,8 +209,7 @@ export default function Contact() {
                 Subscribe to our newsletter for pet care tips and special offers
               </label>
             </div>
-
-            {/* Submit Button */}
+            {/* ... */}
             <button
               type="submit"
               className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
@@ -213,16 +218,14 @@ export default function Contact() {
             </button>
           </form>
         </div>
-
         {/* Contact Info Section */}
         <div className="flex flex-col md:flex-row gap-6 justify-center">
-          {/* First Box */}
+          {/* Contact Info Box */}
           <div className="contact-info-section w-full lg:w-[350px] space-y-6">
             <div className="bg-white p-6 rounded-xl shadow">
               <h3 className="text-xl font-bold mb-4 underline underline-offset-3">
                 Contact Information
               </h3>
-              {/* Phone */}
               <div className="flex items-start gap-3 mb-4 justify-center">
                 <div>
                   <h4 className="font-semibold">Phone</h4>
@@ -234,7 +237,6 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              {/* Email */}
               <div className="flex items-start gap-3 mb-4 justify-center">
                 <div>
                   <h4 className="font-semibold">Email</h4>
@@ -246,21 +248,7 @@ export default function Contact() {
                   </a>
                 </div>
               </div>
-              {/* Hours */}
-              <div className="flex items-start gap-3 mb-4 justify-center">
-                <div>
-                  <h4 className="font-semibold">Hours of Operation</h4>
-                  <div className="text-lg">
-                    <p>
-                      Services: 7 days, 7am-9pm <br />
-                      After 9pm: Available upon request
-                    </p>
-                    <p>Overnight: Available upon request</p>
-                    <p>Holidays: Extra 10% fee on all services</p>
-                  </div>
-                </div>
-              </div>
-              {/* Social Links */}
+              {/* Social links */}
               <h4 className="text-lg font-semibold mt-4">Follow Us</h4>
               <div className="flex gap-3 mt-2 justify-center">
                 <Link
@@ -279,8 +267,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-
-          {/* Second Box - For example, "What to Expect" */}
+          {/* What to Expect Box */}
           <div className="contact-info-section w-full lg:w-[350px] space-y-6">
             <div className="bg-white p-6 rounded-xl shadow">
               <h3 className="text-xl font-bold mb-4 underline underline-offset-4">
@@ -353,6 +340,39 @@ export default function Contact() {
           </div>
         </div>
       </section>
+
+      {status === "success" && (
+        <div className="fixed bottom-5 right-5 z-50 bg-white p-4 rounded-lg shadow-lg border border-green-700 text-center">
+          <button
+            onClick={() => setStatus("idle")}
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+          >
+            &times;
+          </button>
+          <h2 className="text-xl font-bold text-green-800 mb-2">
+            Message Received!
+          </h2>
+          <p className="text-green-700">
+            Thank you for reaching out. We will get back to you shortly.
+          </p>
+        </div>
+      )}
+      {/* Error Toast (bottom-right) */}
+      {status === "tooMany" && (
+        <div className="fixed bottom-5 right-5 z-50 bg-white p-4 rounded-lg shadow-lg border border-red-700 text-center">
+          <button
+            onClick={() => setStatus("idle")}
+            className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+          >
+            &times;
+          </button>
+          <h2 className="text-xl font-bold text-red-800 mb-2">Oops!</h2>
+          <p className="text-red-700">
+            Too many attempts, wait before submitting again! Please call
+            805-404-9981 or email barknrollpetcare@gmail.com.
+          </p>
+        </div>
+      )}
 
       {/* Privacy Note */}
       <div className="max-w-3xl mx-auto text-center my-10 px-4 italic text-gray-700">
