@@ -84,6 +84,45 @@ export default function RootLayout({
         {/* Render Page Content */}
         {children}
       </body>
+      <footer className="bg-black text-white py-6">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="text-sm text-center md:text-left">
+            © 2025 Bark n' Roll Pet Care – All Rights Reserved
+          </div>
+          <div className="flex gap-4">
+            <a href="#" aria-label="Facebook" className="...">
+              <Image
+                src="/fblogo.png"
+                alt="Facebook"
+                width={50}
+                height={250}
+                className=""
+              />
+            </a>
+            <a href="#" aria-label="Instagram" className="...">
+              <Image
+                src="/instalogo.png"
+                alt="Instagram"
+                width={50}
+                height={250}
+                className=""
+              />
+            </a>
+          </div>
+          <div className="text-sm text-center md:text-right flex flex-col md:flex-row items-center gap-2">
+            <a href="tel:8044049981" className="hover:underline">
+              804-404-9981
+            </a>
+            <span className="hidden md:inline-block mx-2">|</span>
+            <a
+              href="mailto:barknrollpetcare@gmail.com"
+              className="hover:underline"
+            >
+              barknrollpetcare@gmail.com
+            </a>
+          </div>
+        </div>
+      </footer>
     </html>
   );
 }

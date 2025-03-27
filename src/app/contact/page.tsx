@@ -1,7 +1,13 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Dancing_Script } from "next/font/google";
+import {
+  Dancing_Script,
+  Pacifico,
+  Montserrat,
+  Open_Sans,
+  Lora,
+} from "next/font/google";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -49,7 +55,7 @@ export default function Contact() {
   };
 
   return (
-    <main className="min-h-screen bg-[#fff5e6] text-[#006400]">
+    <main className="w-full overflow-x-hidden bg-[#fff5e6] text-[#006400]">
       {/* Hero Section */}
       <section className="py-10 px-4 text-center">
         <h1
@@ -63,7 +69,7 @@ export default function Contact() {
             href="tel:+18054049981"
             className="text-green-800 underline underline-offset-5"
           >
-            555-123-4567
+            805-404-9981
           </a>
         </p>
       </section>
@@ -230,7 +236,7 @@ export default function Contact() {
                     href="tel:+18054049981"
                     className="text-green-800 underline underline-offset-5"
                   >
-                    555-123-4567
+                    805-404-9981
                   </a>
                 </div>
               </div>

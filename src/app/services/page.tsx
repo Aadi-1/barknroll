@@ -1,15 +1,26 @@
 import Image from "next/image";
+import { Dancing_Script } from "next/font/google";
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: "700", // Adjust weight as needed
+});
 
 export default function ServicesPage() {
   return (
-    <main className=" min-h-screen">
+    <main className=" w-full overflow-x-hidden">
       {/* Container */}
       <section className=" mx-auto px-6 py-12 bg-orange-100 border-b border-green-700">
         {/* Heading */}
-        <h1 className="text-3xl text-green-800 pt-5 text-center italic">
+        <h1
+          className={`${dancingScript.className} text-center text-4xl md:text-5xl mb-6 text-green-800 font-weight:100`}
+        >
           Our Services
           <div className="mx-auto mt-2 h-0.5 w-1/10 bg-yellow-500"></div>
         </h1>
+        <p className="text-center text-green-800 mt-10">
+          Every service comes with a written update and photos!
+        </p>
       </section>
       {/*Services*/}
       <section className="bg-white text-green-800 ">
@@ -48,9 +59,9 @@ export default function ServicesPage() {
                         <td className="border px-4 py-2 text-center">
                           Dog Walking
                         </td>
-                        <td className="border px-4 py-2 text-center">$30</td>
-                        <td className="border px-4 py-2 text-center">$40</td>
-                        <td className="border px-4 py-2 text-center">$50</td>
+                        <td className="border px-4 py-2 text-center">$25</td>
+                        <td className="border px-4 py-2 text-center">$35</td>
+                        <td className="border px-4 py-2 text-center">$45</td>
                       </tr>
                     </tbody>
                   </table>
@@ -100,9 +111,9 @@ export default function ServicesPage() {
                         <td className="border px-4 py-2 text-center">
                           Pet Sitting
                         </td>
-                        <td className="border px-4 py-2 text-center">$30</td>
-                        <td className="border px-4 py-2 text-center">$40</td>
-                        <td className="border px-4 py-2 text-center">$50</td>
+                        <td className="border px-4 py-2 text-center">$25</td>
+                        <td className="border px-4 py-2 text-center">$35</td>
+                        <td className="border px-4 py-2 text-center">$45</td>
                       </tr>
                     </tbody>
                   </table>
@@ -111,6 +122,54 @@ export default function ServicesPage() {
                   <strong>Customized Care:</strong> We’ll feed, refresh water,
                   handle bathroom breaks, give medications and offer playtime or
                   walks.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
+        <div className="max-w-4xl mx-auto px-30 py-6">
+          <div className="flex flex-col md:flex-row items-center gap-4">
+            <div className="shrink-0">
+              {/* Replace with your own icon/image for Custom Service */}
+              <Image
+                src="/bednbreak.svg"
+                alt="Custom Service"
+                width={80}
+                height={80}
+                className="mx-auto md:mx-0"
+              />
+            </div>
+            <div>
+              <h2 className="text-lg text-green-800 mb-2">
+                <span className="text-xl font-semibold text-green-800 mb-2">
+                  Bed n' Breakfast:
+                </span>{" "}
+                2 hour night visit, 1 hour morning visit
+              </h2>
+              <ul className="list-disc list-inside space-y-1 text-green-900 list-none">
+                <li>
+                  <strong>Evening Visit (e.g., 5:00–7:00 PM):</strong> We arrive
+                  at your home in the early evening for a 2‑hour care session.
+                </li>
+                <li>
+                  <strong>Overnight Absence:</strong> After we finish the
+                  evening visit, we leave your home for the night, but return
+                  early in the morning to make sure your pet starts the day off
+                  right.
+                </li>
+                <li>
+                  <strong>Morning Visit (e.g., 7:00–8:00 AM):</strong> We come
+                  back for a 1‑hour check‑in to feed breakfast, refresh water,
+                  let your pet outside, and offer playtime or a short walk.
+                  Afterward, we’ll send another update so you know how
+                  everything went.
+                </li>
+                <li>
+                  <strong>Extras:</strong> During these sessions, we can take
+                  your pet on brief walks, administer medications if needed, and
+                  ensure they’re comfortable for the day ahead.
                 </li>
               </ul>
             </div>
@@ -164,37 +223,6 @@ export default function ServicesPage() {
                   <strong>Extras:</strong> During this time, we can talk your
                   pet on walks, feed them medication, and give them time
                   outside.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
-        <div className="max-w-4xl mx-auto px-30 py-6">
-          <div className="flex flex-col md:flex-row items-center gap-4">
-            <div className="shrink-0">
-              {/* Replace with your own icon/image for Custom Service */}
-              <Image
-                src="/customservice1.svg"
-                alt="Custom Service"
-                width={80}
-                height={80}
-                className="mx-auto md:mx-0"
-              />
-            </div>
-            <div>
-              <h2 className="text-xl font-semibold text-green-800 mb-2">
-                Custom Service
-              </h2>
-              <ul className="list-disc list-inside space-y-1 text-green-900 list-none">
-                <li>
-                  <strong>Personalized Care:</strong> Not every pet care need
-                  fits a standard package.
-                </li>
-                <li>
-                  <strong>Flexible Options:</strong> Whether it’s a special
-                  event, irregular schedule, or extra service, we customize our
-                  care to meet your pet’s needs.
                 </li>
               </ul>
             </div>
