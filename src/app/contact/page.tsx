@@ -1,13 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import {
-  Dancing_Script,
-  Pacifico,
-  Montserrat,
-  Open_Sans,
-  Lora,
-} from "next/font/google";
+import { Dancing_Script } from "next/font/google";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -164,7 +158,7 @@ export default function Contact() {
                 <option value="">Please select a service</option>
                 <option value="dog-walking">Dog Walking</option>
                 <option value="pet-sitting">Pet Sitting</option>
-                <option value="bedandbreakfast">Bed n' Breakfast</option>
+                <option value="bedandbreakfast">Bed n&apos; Breakfast</option>
                 <option value="overnight">Overnight Care</option>
                 <option value="other">Other (please specify)</option>
               </select>
@@ -293,9 +287,9 @@ export default function Contact() {
                 What to Expect
               </h3>
               <p className="leading-relaxed mb-3">
-                After submitting your inquiry, we'll respond within 24 hours to
-                schedule a free consultation where we discuss your pet's needs
-                and create a customized care plan.
+                After submitting your inquiry, we&apos;ll respond within 24
+                hours to schedule a free consultation where we discuss your
+                pet&apos;s needs and create a customized care plan.
               </p>
               <p className="leading-relaxed">
                 For urgent requests, please call us directly.

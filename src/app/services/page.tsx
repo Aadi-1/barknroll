@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
 
 const dancingScript = Dancing_Script({
@@ -8,7 +9,7 @@ const dancingScript = Dancing_Script({
 
 export default function ServicesPage() {
   return (
-    <main className=" w-full overflow-x-hidden">
+    <main className=" w-full overflow-x-hidden bg-white">
       {/* Container */}
       <section className=" mx-auto px-6 py-12 bg-orange-100 border-b border-green-700">
         {/* Heading */}
@@ -24,7 +25,7 @@ export default function ServicesPage() {
       </section>
       {/*Services*/}
       <section className="bg-white text-green-800 ">
-        <div className="max-w-4xl mx-auto px-30 py-6">
+        <div className="max-w-4xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row items-center gap-4 ">
             <div className="shrink-0">
               {/* Replace with your own icon/image */}
@@ -76,7 +77,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
-        <div className="max-w-4xl mx-auto px-30 py-6">
+        <div className="max-w-4xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row items-center gap-4 ">
             <div className="shrink-0">
               {/* Replace with your own icon/image */}
@@ -129,7 +130,7 @@ export default function ServicesPage() {
         </div>
 
         <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
-        <div className="max-w-4xl mx-auto px-30 py-6">
+        <div className="max-w-4xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row items-center gap-4">
             <div className="shrink-0">
               {/* Replace with your own icon/image for Custom Service */}
@@ -144,7 +145,7 @@ export default function ServicesPage() {
             <div>
               <h2 className="text-lg text-green-800 mb-2">
                 <span className="text-xl font-semibold text-green-800 mb-2">
-                  Bed n' Breakfast:
+                  Bed n&apos; Breakfast:
                 </span>{" "}
                 2 hour night visit, 1 hour morning visit
               </h2>
@@ -176,7 +177,7 @@ export default function ServicesPage() {
           </div>
         </div>
         <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
-        <div className="max-w-4xl mx-auto px-30 py-6">
+        <div className="max-w-4xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row items-center gap-4 ">
             <div className="shrink-0">
               {/* Replace with your own icon/image */}
@@ -230,18 +231,18 @@ export default function ServicesPage() {
         </div>
 
         <div className="mx-auto mt-2 h-0.5 w-3/4 max-w-lg"></div>
-        <div className="max-w-4xl mx-auto my-6 p-6 bg-orange-100 rounded-md text-center shadow border-1 ">
+        <div className="max-w-4xl mx-auto my-6 p-6 bg-orange-100 rounded-md text-center shadow border-2 ">
           <h2 className="text-2xl font-bold text-green-800 mb-2">Pricing</h2>
           <p className="text-green-900 mb-4">
             All services are customized to your pet’s needs. Contact us for a
             personalized quote!
           </p>
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors"
           >
             Book a Service
-          </a>
+          </Link>
         </div>
       </section>
     </main>

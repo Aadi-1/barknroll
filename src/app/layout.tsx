@@ -1,23 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Head from "next/head";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: "700", // Adjust weight as needed
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -92,11 +81,11 @@ export default function RootLayout({
           <div className="flex gap-4">
             <a href="#" aria-label="Facebook" className="...">
               <Image
-                src="/fblogo.png"
+                src="/fblogo2.png"
                 alt="Facebook"
-                width={50}
+                width={35}
                 height={250}
-                className=""
+                className="pt-1"
               />
             </a>
             <a href="#" aria-label="Instagram" className="...">

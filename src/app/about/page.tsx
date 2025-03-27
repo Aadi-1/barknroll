@@ -20,7 +20,7 @@ export default function About() {
           Meet Our Pawsome Team
         </h1>
         <p className="text-lg md:text-xl mb-8 pt-5">
-          The passionate pet lovers behind Bark n' Roll Pet Care
+          The passionate pet lovers behind Bark n&apos; Roll Pet Care
         </p>
       </section>
 
@@ -49,7 +49,7 @@ export default function About() {
               Founder & Head Pet Care Specialist
             </p>
             <p className="mb-4 leading-relaxed">
-              Jason founded Bark n' Roll Pet Care in 2020 after 5 years of
+              Jason founded Bark n&apos; Roll Pet Care in 2020 after 5 years of
               dog-walking experience. Jason is certified in Pet First Aid and
               specializes in senior pet care.
             </p>
@@ -153,10 +153,10 @@ export default function About() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">Our Story</h2>
           <p className="mb-4 leading-relaxed text-lg">
-            Bark n' Roll Pet Care was born from Jason's dream to create a
-            service that treats animals like family, not just clients. What
-            began as a solo operation has grown into a trusted team serving the
-            Simi Valley area.
+            Bark n&apos; Roll Pet Care was born from Jason&apos;s dream to
+            create a service that treats animals like family, not just clients.
+            What began as a solo operation has grown into a trusted team serving
+            the Simi Valley area.
           </p>
           <p className="mb-4 leading-relaxed text-lg">
             We believe every pet deserves the highest quality care tailored to
@@ -170,12 +170,12 @@ export default function About() {
             provide the best care.
           </p>
 
-          <a
+          <Link
             href="/contact"
             className="inline-block bg-[#006400] text-white px-6 py-3 rounded-lg font-bold transition-colors hover:bg-[#004d00]"
           >
             Book Your Consultation Today
-          </a>
+          </Link>
         </div>
       </section>
     </main>

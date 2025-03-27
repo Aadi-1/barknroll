@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef } from "react";
+import { useCallback } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
@@ -65,13 +65,13 @@ export default function PetCarousel() {
         {/* Navigation buttons */}
         <div className="flex justify-center mt-4 gap-4">
           <button
-            className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition-colors"
+            className="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-800 transition-colors"
             onClick={scrollPrev}
           >
             &lt;
           </button>
           <button
-            className="bg-green-700 text-white px-4 py-2 rounded hover:bg-green-800 transition-colors"
+            className="bg-green-800 text-white px-4 py-2 rounded hover:bg-green-800 transition-colors"
             onClick={scrollNext}
           >
             &gt;

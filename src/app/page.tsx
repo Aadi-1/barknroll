@@ -1,29 +1,13 @@
 "use client";
 import Image from "next/image";
-import {
-  Dancing_Script,
-  Pacifico,
-  Montserrat,
-  Open_Sans,
-  Lora,
-} from "next/font/google";
+import { Dancing_Script, Lora } from "next/font/google";
+import Link from "next/link";
 import { useEffect } from "react";
-import { useState } from "react";
 import PetCarousel from "./components/carousel";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
   weight: "700", // Adjust weight as needed
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: "400",
-});
-
-const pacifico = Pacifico({
-  subsets: ["latin"],
-  weight: "400",
 });
 
 const lora = Lora({
@@ -90,39 +74,39 @@ export default function Home() {
               src="/bnrlogoborder2.svg" // image from public folder
               width={370}
               height={370}
-              alt="Bark n' Roll Logo"
+              alt="Bark n't Roll Logo"
               className="mx-auto "
             />
           </div>
           {/* Tagline (large screen only) */}
           <h1
-            className={`${pacifico.className} hidden md:block text-4xl text-green-700 text-center font-weight:100 logo`}
+            className={`${dancingScript.className} hidden md:block text-5xl text-green-800 text-center font-weight:100 logo`}
           >
             For all your furry, feathered, and finned friends’ needs!
           </h1>
 
           {/* Tagline (small screen) */}
           <h1
-            className={`${lora.className} text-green-700 pt-8 text-2xl italic text-center w-full px-4`}
+            className={`${lora.className} text-green-800 pt-8 text-2xl italic text-center w-full px-4`}
           >
             Pet Sitting, Dog Walking &amp; More in the Simi Valley Area!
           </h1>
 
           {/* Buttons */}
           <div className="flex flex-col items-center justify-center gap-4 pt-10 w-full md:flex-row">
-            <a href="/contact">
-              <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
+            <Link href="/contact">
+              <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
                 New Client?{" "}
                 <span className="underline underline-offset-4">
                   Book a Meet-and-Greet
                 </span>
               </span>
-            </a>
+            </Link>
             <a
               href="https://0523barknroll.petsoftware.net/clientportal/login?goto=https://0523barknroll.petsoftware.net/clientportal/schedule.owl"
               target="_blank"
             >
-              <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
+              <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
                 Returning Client?{" "}
                 <span className="underline underline-offset-4">Log In</span>
               </span>
@@ -145,7 +129,7 @@ export default function Home() {
           {/* total Class */}
           <div className="flex flex-col md:flex-row gap-6 py-10 items-start">
             {/* Dog Walking */}
-            <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-700 bg-white shadow-sm p-4">
+            <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-800 bg-white shadow-sm p-4">
               <Image
                 src="/dogwalk4.svg" // image from public folder
                 width={80}
@@ -166,7 +150,7 @@ export default function Home() {
               </p>
             </div>
             {/* Pet SItting */}
-            <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-700 bg-white shadow-sm p-4">
+            <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-800 bg-white shadow-sm p-4">
               <Image
                 src="/dogwalk2.svg" // image from public folder
                 width={80}
@@ -186,8 +170,8 @@ export default function Home() {
                 </span>
               </p>
             </div>
-            {/* Bed n' Breakfast */}
-            <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-700 bg-white shadow-sm p-4">
+            {/* Bed n&apos;t Breakfast */}
+            <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-800 bg-white shadow-sm p-4">
               <Image
                 src="/bednbreak.svg" // image from public folder
                 width={80}
@@ -195,7 +179,9 @@ export default function Home() {
                 alt="overnights-img"
                 className="mx-auto mb-3"
               />
-              <h3 className="text-green-800 mb-4 text-xl">Bed n' Breakfast</h3>
+              <h3 className="text-green-800 mb-4 text-xl">
+                Bed n&apos; Breakfast
+              </h3>
               <p className="text-green-800 text-md leading-normal text-justify w-full">
                 <span className="block text-center font-semibold">
                   Going away for a night?
@@ -215,13 +201,14 @@ export default function Home() {
             <p className="mb-2 text-green-800">
               For more information on Full Pricing & Details on our Services{" "}
             </p>
-            <a href="/services">
-              <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-green-800 transition-colors">
+            <Link href="/services">
+              <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-2xl font-semibold hover:bg-green-800 transition-colors">
                 Learn More
               </span>
-            </a>
+            </Link>
           </div>
         </section>
+
         <PetCarousel />
         <section className="bg-orange-100 px-8 py-6">
           <h2 className="text-2xl text-center font-semibold text-green-800 mb-4">
@@ -229,7 +216,7 @@ export default function Home() {
             <div className="mx-auto mt-2 h-0.5 w-1/6 bg-yellow-500"></div>
           </h2>
 
-          <p className="text-center text-green-700 mb-6">
+          <p className="text-center text-green-800 mb-6">
             We are{" "}
             <span className="font-semibold underline underline-offset-4">
               fully insured
@@ -272,13 +259,13 @@ export default function Home() {
           <h2 className="text-green-800 text-xl font-semibold">
             Ready to book?
           </h2>
-          <a href="/contact" className="pt-8">
-            <span className="inline-block bg-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors">
+          <Link href="/contact" className="pt-8">
+            <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors">
               <span className="underline underline-offset-4">
                 Book a Meet-and-Greet
               </span>
             </span>
-          </a>
+          </Link>
         </section>
       </div>
     </main>
