@@ -3,6 +3,7 @@ import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Head from "next/head";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -72,6 +73,7 @@ export default function RootLayout({
 
         {/* Render Page Content */}
         {children}
+        <Analytics />
       </body>
       <footer className="bg-black text-white py-6">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
