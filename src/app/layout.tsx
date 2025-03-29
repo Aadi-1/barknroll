@@ -13,6 +13,9 @@ const dancingScript = Dancing_Script({
 export const metadata: Metadata = {
   title: "Bark n' Roll Pet Care",
   description: "Best pet care service in town!",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
