@@ -33,13 +33,13 @@ export default function About() {
 
         {/* Team Member 1 */}
         <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="md:w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="relative w-full h-64">
               <Image
-                src="/sarah.jpg"
+                src="/jason.jpg"
                 alt="Jason Berrietter"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "top center" }}
               />
             </div>
           </div>
@@ -62,35 +62,38 @@ export default function About() {
 
         {/* Team Member 2 */}
         <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="md:w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="relative w-full h-64">
               <Image
-                src="/marcus.jpg"
-                alt="Kaitlin Siple"
+                src="/avatar.svg"
+                alt="Kaitlin Pedigo"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "top center" }}
               />
             </div>
           </div>
           <div className="md:w-2/3 p-6">
-            <h3 className="text-2xl font-bold mb-2">Kaitlin Siple</h3>
+            <h3 className="text-2xl font-bold mb-2">Kaitlin Pedigo</h3>
             <p className="text-lg italic text-yellow-500 mb-4">
               Pet Care Provider
             </p>
-            <p className="mb-4 leading-relaxed">LIMELFMLSINFLSNF</p>
-            <p className="italic">Proud pet parent to: .......</p>
+            <p className="mb-4 leading-relaxed">
+              Kaitlin joined Bark n’ Roll soon after it was founded and brings a
+              warm, patient approach to every pet she cares for.
+            </p>
+            {/* <p className="italic">Proud pet parent to: .......</p> */}
           </div>
         </div>
 
         {/* Team Member 3 */}
         <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="md:w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="relative w-full h-64">
               <Image
-                src="/maria.jpg"
+                src="/liz.jpg"
                 alt="Liz Calvaresi"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "top center" }}
               />
             </div>
           </div>
@@ -99,51 +102,61 @@ export default function About() {
             <p className="text-lg italic text-yellow-500 mb-4">
               Pet Care Provider
             </p>
-            <p className="mb-4 leading-relaxed">linaeflinaeflnaefln</p>
-            <p className="italic">Proud pet parent to: ....</p>
+            <p className="mb-4 leading-relaxed">
+              Liz has been part of our team since 2020, offering gentle,
+              attentive service that makes each animal feel at ease.
+            </p>
+            {/* <p className="italic">Proud pet parent to: ....</p> */}
           </div>
         </div>
 
         {/* Team Member 4 */}
         <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="md:w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="relative w-full h-64">
               <Image
-                src="/nicole.jpg"
-                alt="nicole"
+                src="/avatar.svg"
+                alt="Nicole Iverson"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "top center" }}
               />
             </div>
           </div>
           <div className="md:w-2/3 p-6">
-            <h3 className="text-2xl font-bold mb-2">Nicole ...</h3>
+            <h3 className="text-2xl font-bold mb-2">Nicole Iverson</h3>
             <p className="text-lg italic text-yellow-500 mb-4">
               Pet Care Provider
             </p>
-            <p className="mb-4 leading-relaxed">naeflnaelfinaeflinaeflin.</p>
-            <p className="italic">Proud pet parent to: .....</p>
+            <p className="mb-4 leading-relaxed">
+              Nicole’s calm demeanor and love for all creatures ensure pets of
+              any age or temperament feel safe and happy.
+            </p>
+            {/* <p className="italic">Proud pet parent to: .....</p> */}
           </div>
         </div>
 
         <div className="flex flex-col md:flex-row items-center mb-12 bg-white rounded-xl shadow-lg overflow-hidden">
-          <div className="md:w-1/3">
+          <div className="w-full md:w-1/3">
             <div className="relative w-full h-64">
               <Image
-                src="/erin.jpg"
-                alt="Erin Berrietter"
+                src="/avatar.svg"
+                alt="Erin Berreitter"
                 fill
-                style={{ objectFit: "cover" }}
+                style={{ objectFit: "cover", objectPosition: "top center" }}
               />
             </div>
           </div>
           <div className="md:w-2/3 p-6">
             <h3 className="text-2xl font-bold mb-2">Erin Berreitter</h3>
             <p className="text-lg italic text-yellow-500 mb-4">
-              Part-time Pet Cre Provider
+              Part-time Pet Care Provider
             </p>
-            <p className="mb-4 leading-relaxed">kknafkjnekfuneafuknaefu</p>
-            <p className="italic">Proud pet parent to: ...</p>
+            <p className="mb-4 leading-relaxed">
+              Erin provides part‑time support to the Bark n’ Roll crew, sharing
+              her compassionate energy and a special knack for bonding with shy
+              pets.
+            </p>
+            {/* <p className="italic">Proud pet parent to: ...</p> */}
           </div>
         </div>
       </section>

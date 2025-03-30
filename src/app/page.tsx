@@ -121,7 +121,7 @@ export default function Home() {
             Our Services
             <div className="mx-auto mt-2 h-0.5 w-3/4 bg-yellow-500"></div>
           </h2>
-          <p className="text-lg text-green-800 mt-4">
+          <p className="text-lg text-green-800 mt-4 text-center md:text-left">
             Every service comes with a{" "}
             <span className="font-semibold">written update </span> and{" "}
             <span className="font-semibold">photos</span>!

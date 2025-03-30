@@ -12,7 +12,7 @@ const dancingScript = Dancing_Script({
 
 export const metadata: Metadata = {
   title: "Bark n' Roll Pet Care",
-  description: "Best pet care service in town!",
+  description: "Best Dog Walking service in Simi Valley!",
   icons: {
     icon: "/favicon.ico",
   },

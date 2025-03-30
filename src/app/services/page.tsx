@@ -145,7 +145,7 @@ export default function ServicesPage() {
             <div>
               <h2 className="text-lg text-green-800 mb-2">
                 <span className="text-xl font-semibold text-green-800 mb-2">
-                  Bed n&apos; Breakfast:
+                  Bed n&apos; Breakfast ($95):
                 </span>{" "}
                 2 hour night visit, 1 hour morning visit
               </h2>
@@ -190,8 +190,11 @@ export default function ServicesPage() {
               />
             </div>
             <div>
-              <h2 className="text-xl font-semibold text-green-800 mb-2">
-                Overnights (~$100)
+              <h2 className="text-lg text-green-800 mb-2">
+                <span className="text-xl font-semibold text-green-800 mb-2">
+                  Overnights:
+                </span>{" "}
+                Special Request Only*
               </h2>
               <ul className="list-disc list-inside space-y-1 text-green-900  list-none">
                 <li>
