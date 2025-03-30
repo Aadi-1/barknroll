@@ -10,6 +10,16 @@ import Image from "next/image";
 const petImages = [
   { src: "/pet1.png", alt: "Happy Pup 1", width: 800, height: 600 },
   { src: "/pet2.png", alt: "Happy Pup 2", width: 600, height: 450 },
+  { src: "/pet3.jpg", alt: "Happy Pup 3", width: 1000, height: 1000 },
+  { src: "/pet4.jpg", alt: "Happy Pup 4", width: 800, height: 600 },
+  { src: "/pet5.jpg", alt: "Happy Pup 5", width: 800, height: 600 },
+  { src: "/pet6.jpg", alt: "Happy Pup 6", width: 800, height: 600 },
+  { src: "/pet7.jpg", alt: "Happy Pup 7", width: 800, height: 600 },
+  { src: "/pet8.jpg", alt: "Happy Pup 8", width: 800, height: 600 },
+  { src: "/pet9.jpg", alt: "Happy Pup 9", width: 800, height: 600 },
+  { src: "/pet10.jpg", alt: "Happy Pup 10", width: 800, height: 600 },
+  { src: "/pet11.jpg", alt: "Happy Pup 11", width: 800, height: 600 },
+  { src: "/pet12.jpg", alt: "Happy Pup 12", width: 800, height: 600 },
 ];
 
 export default function PetCarousel() {
