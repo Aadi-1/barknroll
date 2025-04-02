@@ -115,7 +115,7 @@ export default function About() {
           <div className="w-full md:w-1/3">
             <div className="relative w-full h-64">
               <Image
-                src="/avatar.svg"
+                src="/nicole.JPG"
                 alt="Nicole Iverson"
                 fill
                 style={{ objectFit: "cover", objectPosition: "top center" }}
