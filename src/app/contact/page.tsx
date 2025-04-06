@@ -3,6 +3,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
 import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent } from "@next/third-parties/google";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -210,11 +211,11 @@ export default function Contact() {
                 Subscribe to our newsletter for pet care tips and special offers
               </label>
             </div>
-            {/* ... */}
+            {/* sendGAEvent('event', 'buttonClicked', {value: "G-63HMB5JB3Q"}) */}
             <button
               type="submit"
               onClick={() =>
-                sendGTMEvent({ event: "buttonClicked", value: "GTM-KNBDPQ8X" })
+                sendGAEvent("event", "buttonClicked", { value: "G-63HMB5JB3Q" })
               }
               className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
             >
