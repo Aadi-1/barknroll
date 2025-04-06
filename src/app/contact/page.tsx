@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -13,6 +14,10 @@ export default function Contact() {
     "idle" | "sending" | "success" | "error" | "tooMany"
   >("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
+
+  const handleClick = () => {
+    sendGTMEvent({ event: "sendMessageClick", label: "Send Message Button" });
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -212,6 +217,7 @@ export default function Contact() {
             {/* ... */}
             <button
               type="submit"
+              onClick={handleClick}
               className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
             >
               Send Message

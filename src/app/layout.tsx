@@ -4,6 +4,7 @@ import Image from "next/image";
 import Head from "next/head";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -25,6 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <GoogleTagManager gtmId="GTM-G-63HMB5JB3Q" />
       <body>
         <Head>
           <title>Bark n' Roll Pet Care | Dog Walking, Pet Sitting & More</title>
