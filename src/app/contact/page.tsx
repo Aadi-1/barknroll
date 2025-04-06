@@ -16,6 +16,14 @@ export default function Contact() {
   >("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
 
+  const handleClick = () => {
+    // Send event to Google Analytics
+    sendGAEvent("event", "buttonClicked", { value: "SendMessageButton" });
+
+    // Send event to Google Tag Manager
+    sendGTMEvent({ event: "buttonClicked", value: "SendMessageButton" });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget; // Save the reference here
@@ -214,9 +222,7 @@ export default function Contact() {
             {/* sendGAEvent('event', 'buttonClicked', {value: "G-63HMB5JB3Q"}) */}
             <button
               type="submit"
-              onClick={() =>
-                sendGAEvent("event", "buttonClicked", { value: "G-63HMB5JB3Q" })
-              }
+              onClick={handleClick}
               className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
             >
               Send Message
