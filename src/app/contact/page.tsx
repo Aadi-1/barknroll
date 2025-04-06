@@ -15,10 +15,6 @@ export default function Contact() {
   >("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
 
-  const handleClick = () => {
-    sendGTMEvent({ event: "sendMessageClick", label: "Send Message Button" });
-  };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget; // Save the reference here
@@ -217,7 +213,9 @@ export default function Contact() {
             {/* ... */}
             <button
               type="submit"
-              onClick={handleClick}
+              onClick={() =>
+                sendGTMEvent({ event: "buttonClicked", value: "GTM-KNBDPQ8X" })
+              }
               className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
             >
               Send Message

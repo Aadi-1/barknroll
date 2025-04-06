@@ -26,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <GoogleTagManager gtmId="GTM-G-63HMB5JB3Q" />
+      <GoogleTagManager gtmId="GTM-KNBDPQ8X" />
       <body>
         <Head>
           <title>Bark n' Roll Pet Care | Dog Walking, Pet Sitting & More</title>
