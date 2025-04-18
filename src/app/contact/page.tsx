@@ -36,6 +36,7 @@ export default function Contact() {
       phone: formData.get("phone"),
       "contact-preference": formData.get("contact-preference"),
       service: formData.get("service"),
+      referral: formData.get("referral"),
       message: formData.get("message"),
       schedule: formData.get("schedule"),
       newsletter: formData.get("newsletter") === "on",
@@ -180,10 +181,22 @@ export default function Contact() {
               </select>
             </div>
 
+            <div>
+              <label htmlFor="referral" className="block font-bold mb-2">
+                Referred By (Optional)
+              </label>
+              <textarea
+                id="referral"
+                name="referral"
+                placeholder="Enter their name"
+                className="w-full p-2 border border-gray-300 rounded h-10 resize-none"
+              />
+            </div>
+
             {/* Additional Details / Questions */}
             <div>
               <label htmlFor="message" className="block font-bold mb-2">
-                Additional Details / Questions
+                Additional Details / Questions / References?
               </label>
               <textarea
                 id="message"

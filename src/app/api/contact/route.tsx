@@ -50,6 +50,7 @@ export async function POST(request: Request) {
       phone,
       "contact-preference": contactPreference,
       service,
+      referral,
       message,
       schedule,
       newsletter,
@@ -79,6 +80,7 @@ export async function POST(request: Request) {
         Service Interested In: ${service || "N/A"}
         Preferred Consultation Date/Time: ${schedule || "N/A"}
         Email Notifications: ${newsletter ? "Yes" : "No"}
+        Referred By: ${referral || "N/A"}
         Message: ${message || "No message provided"}
       `,
     };
