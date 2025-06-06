@@ -86,7 +86,7 @@ export default function RootLayout({
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-center md:text-left">
             © 2025 Created By{" "}
-            <a href="clickbuilt.net" target="_blank">
+            <a href="https://www.clickbuilt.net/" target="_blank">
               {" "}
               ClickBuilt{" "}
             </a>{" "}
