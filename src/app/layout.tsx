@@ -3,6 +3,7 @@ import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Head from "next/head";
 import "./globals.css";
+import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -85,7 +86,12 @@ export default function RootLayout({
       <footer className="bg-black text-white py-6">
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-center md:text-left">
-            © 2025 Bark n' Roll Pet Care – All Rights Reserved
+            © 2025 Created By{" "}
+            <Link href="clickbuilt.net" target="_blank">
+              {" "}
+              ClickBuilt{" "}
+            </Link>{" "}
+            – All Rights Reserved
           </div>
           <div className="flex gap-4">
             <a href="#" aria-label="Facebook" className="...">
