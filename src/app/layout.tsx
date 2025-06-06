@@ -3,7 +3,6 @@ import { Dancing_Script } from "next/font/google";
 import Image from "next/image";
 import Head from "next/head";
 import "./globals.css";
-import Link from "next/link";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -87,10 +86,10 @@ export default function RootLayout({
         <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="text-sm text-center md:text-left">
             © 2025 Created By{" "}
-            <Link href="clickbuilt.net" target="_blank">
+            <a href="clickbuilt.net" target="_blank">
               {" "}
               ClickBuilt{" "}
-            </Link>{" "}
+            </a>{" "}
             – All Rights Reserved
           </div>
           <div className="flex gap-4">

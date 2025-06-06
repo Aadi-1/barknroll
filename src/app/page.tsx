@@ -72,7 +72,7 @@ export default function Home() {
           />
           <div>
             <Image
-              src="/bnrlogoborder2.svg" // image from public folder
+              src="/bnrlogoborder.svg" // image from public folder
               width={370}
               height={370}
               alt="Bark n't Roll Logo"
