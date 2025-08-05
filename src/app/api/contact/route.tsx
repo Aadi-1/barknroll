@@ -44,17 +44,7 @@ export async function POST(request: Request) {
     submissionStore[ip].push(now);
 
     const body = await request.json();
-    const {
-      name,
-      email,
-      phone,
-      "contact-preference": contactPreference,
-      service,
-      referral,
-      message,
-      schedule,
-      newsletter,
-    } = body;
+    const { name, email, phone, service, message, newsletter } = body;
 
     if (!name || !email || !phone) {
       return NextResponse.json(
@@ -76,11 +66,8 @@ export async function POST(request: Request) {
         Name: ${name}
         Email: ${email}
         Phone: ${phone}
-        Preferred Contact Method: ${contactPreference || "N/A"}
         Service Interested In: ${service || "N/A"}
-        Preferred Consultation Date/Time: ${schedule || "N/A"}
         Email Notifications: ${newsletter ? "Yes" : "No"}
-        Referred By: ${referral || "N/A"}
         Message: ${message || "No message provided"}
       `,
     };

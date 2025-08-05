@@ -34,7 +34,6 @@ export default function Contact() {
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
-      "contact-preference": formData.get("contact-preference"),
       service: formData.get("service"),
       referral: formData.get("referral"),
       message: formData.get("message"),
@@ -95,7 +94,7 @@ export default function Contact() {
           Fill out our contact form or give us a call at{" "}
           <a
             href="tel:+18054049981"
-            className="text-green-800 underline underline-offset-5"
+            className="text-2xl text-green-800 underline underline-offset-5"
           >
             805-404-9981
           </a>
@@ -143,7 +142,7 @@ export default function Contact() {
             </div>
 
             {/* Phone and Contact Preference */}
-            <div className="md:flex gap-4">
+            <div className="flex flex-row justify-center gap-4">
               <div className="md:w-1/2 mb-4 md:mb-0">
                 <label htmlFor="phone" className="block font-bold mb-2">
                   Phone Number*
@@ -155,23 +154,6 @@ export default function Contact() {
                   required
                   className="w-full p-3 border border-gray-300 rounded"
                 />
-              </div>
-              <div className="md:w-1/2">
-                <label
-                  htmlFor="contact-preference"
-                  className="block font-bold mb-2"
-                >
-                  Preferred Contact Method
-                </label>
-                <select
-                  id="contact-preference"
-                  name="contact-preference"
-                  className="w-full p-3 border border-gray-300 rounded"
-                >
-                  <option value="email">Email</option>
-                  <option value="phone">Phone Call</option>
-                  <option value="text">Text Message</option>
-                </select>
               </div>
             </div>
 
@@ -194,18 +176,6 @@ export default function Contact() {
               </select>
             </div>
 
-            <div>
-              <label htmlFor="referral" className="block font-bold mb-2">
-                Referred By (Optional)
-              </label>
-              <textarea
-                id="referral"
-                name="referral"
-                placeholder="Enter their name"
-                className="w-full p-2 border border-gray-300 rounded h-10 resize-none"
-              />
-            </div>
-
             {/* Additional Details / Questions */}
             <div>
               <label htmlFor="message" className="block font-bold mb-2">
@@ -216,20 +186,6 @@ export default function Contact() {
                 name="message"
                 placeholder="Tell us about your pet's needs, preferred schedule, or any questions you have."
                 className="w-full p-3 border border-gray-300 rounded h-32 resize-none"
-              />
-            </div>
-
-            {/* Preferred Consultation Date/Time */}
-            <div>
-              <label htmlFor="schedule" className="block font-bold mb-2">
-                Preferred Consultation Date/Time (Optional)
-              </label>
-              <input
-                type="text"
-                id="schedule"
-                name="schedule"
-                placeholder="e.g. Weekdays after 5pm or Saturday mornings"
-                className="w-full p-3 border border-gray-300 rounded"
               />
             </div>
 
