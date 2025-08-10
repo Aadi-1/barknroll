@@ -2,12 +2,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
-import { useRouter } from "next/router";
-import { sendGTMEvent } from "@next/third-parties/google";
-import { sendGAEvent } from "@next/third-parties/google";
+import { useRouter, usePathname } from "next/navigation";
+import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 
 export default function LandingCustom() {
   const router = useRouter();
+  const pathname = usePathname();
   const navigatingRef = useRef(false);
 
   useEffect(() => {
@@ -22,14 +22,14 @@ export default function LandingCustom() {
     const params = {
       cta_location: "landing_page",
       cta_text: "Book A Free Consultation",
-      source_page: router.asPath || "/landing",
+      source_page: pathname || "/landing",
     };
 
     // GA4 + GTM
     sendGAEvent("event", "book_appt_click", params);
     sendGTMEvent({ event: "book_appt_click", ...params });
 
-    // Give the hit a moment to send, then client-side navigate
+    // small delay so tags fire, then client-side navigate
     setTimeout(() => router.push("/contact"), 250);
   };
 
