@@ -59,7 +59,7 @@ export async function POST(request: Request) {
     });
 
     const emailData = {
-      from: `Bark n' Roll <postmaster@${process.env.MAILGUN_DOMAIN}>`,
+      from: `NEW INQUIRY <postmaster@${process.env.MAILGUN_DOMAIN}>`,
       to: "barknrollpetcare@gmail.com", // For testing, change as needed
       subject: `New Inquiry from ${name}`,
       text: `

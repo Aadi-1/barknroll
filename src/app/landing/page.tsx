@@ -1,12 +1,37 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useRouter } from "next/router";
+import { sendGTMEvent } from "@next/third-parties/google";
+import { sendGAEvent } from "@next/third-parties/google";
 
 export default function LandingCustom() {
+  const router = useRouter();
+  const navigatingRef = useRef(false);
+
   useEffect(() => {
     document.documentElement.style.scrollBehavior = "smooth";
   }, []);
+
+  const handleLandingCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (navigatingRef.current) return;
+    navigatingRef.current = true;
+
+    const params = {
+      cta_location: "landing_page",
+      cta_text: "Book A Free Consultation",
+      source_page: router.asPath || "/landing",
+    };
+
+    // GA4 + GTM
+    sendGAEvent("event", "book_appt_click", params);
+    sendGTMEvent({ event: "book_appt_click", ...params });
+
+    // Give the hit a moment to send, then client-side navigate
+    setTimeout(() => router.push("/contact"), 250);
+  };
 
   return (
     <main className="scroll-smooth relative overflow-x-hidden min-h-screen bg-gradient-to-br from-[#f5f0e8] to-[#e8ddd0] font-serif">
@@ -99,9 +124,10 @@ export default function LandingCustom() {
         <div className="text-center mt-10">
           <Link
             href="/contact"
+            onClick={handleLandingCtaClick}
             className="inline-block bg-gradient-to-br from-[#4a7c59] to-[#6b9c7a] text-white px-8 py-4 rounded-full text-xl font-bold shadow-lg hover:shadow-xl transition"
           >
-            Book Your Meet &amp; Greet!
+            Book A Free Consultation!
           </Link>
         </div>
       </section>
