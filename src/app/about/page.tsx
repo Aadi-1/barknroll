@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
+import NavBar from "../components/navbar";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -10,6 +11,7 @@ const dancingScript = Dancing_Script({
 export default function About() {
   return (
     <main className="bg-[#fff5e6] text-[#006400]">
+      <NavBar />
       {/* Header */}
 
       {/* Hero Section */}

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
 import { sendGTMEvent } from "@next/third-parties/google";
 import { sendGAEvent } from "@next/third-parties/google";
+import NavBar from "../components/navbar";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -83,6 +84,7 @@ export default function Contact() {
 
   return (
     <main className="w-full overflow-x-hidden bg-[#fff5e6] text-[#006400]">
+      <NavBar />
       {/* Hero Section */}
       <section className="py-10 px-4 text-center">
         <h1
@@ -202,13 +204,15 @@ export default function Contact() {
               </label>
             </div>
             {/* sendGAEvent('event', 'buttonClicked', {value: "G-63HMB5JB3Q"}) */}
-            <button
-              type="submit"
-              onClick={handleClick}
-              className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
-            >
-              Send Message
-            </button>
+            <a href="/thankyou">
+              <button
+                type="submit"
+                onClick={handleClick}
+                className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
+              >
+                Send Message
+              </button>
+            </a>
           </form>
         </div>
         {/* Contact Info Section */}

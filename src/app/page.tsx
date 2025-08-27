@@ -4,6 +4,7 @@ import { Dancing_Script, Lora } from "next/font/google";
 import Link from "next/link";
 import { useEffect } from "react";
 import PetCarousel from "./components/carousel";
+import NavBar from "./components/navbar";
 import Script from "next/script";
 
 const dancingScript = Dancing_Script({
@@ -23,6 +24,7 @@ export default function Home() {
 
   return (
     <main className="w-full overflow-x-hidden">
+      <NavBar />
       <div>
         <section className="relative w-full min-h-[90vh] flex flex-col bg-orange-100  items-center  border-b border-black">
           <Image

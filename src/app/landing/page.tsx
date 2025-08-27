@@ -84,27 +84,37 @@ export default function LandingCustom() {
           </div>
 
           {/* Social proof row */}
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-white/80 border border-[#4a7c59]/30 px-4 py-2 shadow-sm">
-            <Star className="w-5 h-5 fill-current text-[#f5a524]" />
-            <Star className="w-5 h-5 fill-current text-[#f5a524]" />
-            <Star className="w-5 h-5 fill-current text-[#f5a524]" />
-            <Star className="w-5 h-5 fill-current text-[#f5a524]" />
-            <Star className="w-5 h-5 fill-current text-[#f5a524]" />
+          {/* Social-proof row */}
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
+            {/* ...your other badges... */}
 
-            <span className="text-sm font-semibold text-[#2d4a35]">
-              5‑Star service loved by local pet parents
-            </span>
+            {/* Stars + caption (two lines, same div, white background) */}
+            <div className="inline-flex flex-col items-center text-center bg-white px-4 py-2 rounded-lg shadow border">
+              <div className="flex gap-1" aria-label="5 out of 5 stars">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className="text-yellow-500 text-xl leading-none"
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+              <span className="mt-1 text-sm md:text-base font-medium text-green-800">
+                5-star service loved by local pet parents
+              </span>
+            </div>
           </div>
 
           {/* Primary CTA */}
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <div className="mt-6 hidden md:flex items-center justify-center gap-3">
             <Link
               href="/contact"
               onClick={handleBookClick}
               aria-label="Book a free meet and greet"
               className="inline-block w-full sm:w-auto text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
             >
-              Book Free Meet & Greet
+              Book a Free Meet & Greet
             </Link>
             {!!PHONE && (
               <a
@@ -124,7 +134,7 @@ export default function LandingCustom() {
       <section className="relative z-10 max-w-5xl mx-auto px-5 pb-6">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            "30‑minute walks & play tailored to your pet",
+            "Walks and Sits starting at 30‑min up to 90-min",
             "Photo & text update after every visit",
             "Flexible scheduling — no long‑term contracts",
           ].map((item) => (
@@ -151,7 +161,7 @@ export default function LandingCustom() {
             <div className="w-full sm:w-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center border-2 border-[#4a7c59] relative overflow-hidden">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4a7c59] to-[#6b9c7a]"></div>
               <h3 className="text-lg text-[#4a7c59] font-bold mb-2">
-                Starter Pack • 3 Walks(30 min)
+                3 Walks or Sits (30 min)
               </h3>
               <div className="inline-flex items-baseline justify-center gap-2 mb-1">
                 <span className="text-4xl text-[#2d4a35] font-extrabold">
@@ -171,7 +181,7 @@ export default function LandingCustom() {
                   onClick={handleBookClick}
                   className="inline-block bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-base font-bold shadow-md transition"
                 >
-                  Book This Deal
+                  Claim This Deal Now!
                 </Link>
               </div>
             </div>
@@ -337,7 +347,7 @@ export default function LandingCustom() {
             onClick={handleBookClick}
             className="flex-1 text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-4 py-3 rounded-full text-base font-bold shadow-md transition"
           >
-            Book Free Meet & Greet
+            Book a Free Meet & Greet
           </Link>
           {!!PHONE && (
             <a

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
+import NavBar from "../components/navbar";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -10,6 +11,7 @@ const dancingScript = Dancing_Script({
 export default function ServicesPage() {
   return (
     <main className=" w-full overflow-x-hidden bg-white">
+      <NavBar />
       {/* Container */}
       <section className=" mx-auto px-6 py-12 bg-orange-100 border-b border-green-700">
         {/* Heading */}
