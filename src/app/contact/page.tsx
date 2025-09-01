@@ -3,8 +3,8 @@ import { useState } from "react";
 import Link from "next/link";
 import { Dancing_Script } from "next/font/google";
 import { sendGTMEvent } from "@next/third-parties/google";
-import { sendGAEvent } from "@next/third-parties/google";
 import NavBar from "../components/navbar";
+import { useRouter } from "next/navigation";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -12,15 +12,13 @@ const dancingScript = Dancing_Script({
 });
 
 export default function Contact() {
+  const router = useRouter();
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error" | "tooMany"
   >("idle");
   const [serverMessage, setServerMessage] = useState<string>("");
 
   const handleClick = () => {
-    // Send event to Google Analytics
-    sendGAEvent("event", "buttonClicked", { value: "SendMessageButton" });
-
     // Send event to Google Tag Manager
     sendGTMEvent({ event: "buttonClicked", value: "SendMessageButton" });
   };
@@ -71,7 +69,9 @@ export default function Contact() {
             event: "formSubmissionSuccess",
           });
         }
+
         // Clear the success message after a delay
+        router.push("/thankyou");
         setTimeout(() => setStatus("idle"), 5000);
       } else {
         setStatus("error");
@@ -204,15 +204,14 @@ export default function Contact() {
               </label>
             </div>
             {/* sendGAEvent('event', 'buttonClicked', {value: "G-63HMB5JB3Q"}) */}
-            <a href="/thankyou">
-              <button
-                type="submit"
-                onClick={handleClick}
-                className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
-              >
-                Send Message
-              </button>
-            </a>
+
+            <button
+              type="submit"
+              onClick={handleClick}
+              className="bg-[#006400] text-white py-3 px-6 rounded-md text-lg font-bold hover:bg-[#004d00] transition-colors"
+            >
+              Send Message
+            </button>
           </form>
         </div>
         {/* Contact Info Section */}
