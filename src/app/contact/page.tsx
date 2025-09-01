@@ -56,13 +56,7 @@ export default function Contact() {
       } else if (res.ok) {
         setStatus("success");
         form.reset();
-        if (typeof window !== "undefined" && window.gtag) {
-          window.gtag("event", "conversion", {
-            send_to: "AW-16951742259/CnDMCNrT-fAaELOenJM_",
-            value: 1.0,
-            currency: "USD",
-          });
-        }
+
         if (typeof window !== "undefined") {
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
