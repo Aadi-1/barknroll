@@ -15,17 +15,11 @@ export async function POST(request: Request) {
       "unknown";
     const now = Date.now();
 
-    // Change windowTime to 30 minutes:
-    // 30 * 60 * 1000 = 1,800,000 ms
+    // 30 minutes (in ms)
     const windowTime = 30 * 60 * 1000;
-
-    // Maximum submissions allowed per IP within the window
     const maxSubmissions = 3;
 
-    // Initialize or clean up old timestamps
-    if (!submissionStore[ip]) {
-      submissionStore[ip] = [];
-    }
+    if (!submissionStore[ip]) submissionStore[ip] = [];
     submissionStore[ip] = submissionStore[ip].filter(
       (timestamp) => now - timestamp < windowTime
     );
@@ -40,7 +34,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Record this submission timestamp
+    // Record this submission
     submissionStore[ip].push(now);
 
     const body = await request.json();
@@ -58,24 +52,50 @@ export async function POST(request: Request) {
       domain: process.env.MAILGUN_DOMAIN!,
     });
 
-    const emailData = {
-      from: `NEW INQUIRY <postmaster@${process.env.MAILGUN_DOMAIN}>`,
-      to: "barknrollpetcare@gmail.com", // For testing, change as needed
+    // You can move this to an env var if you like:
+    const NOTIFY_TO =
+      process.env.BNR_NOTIFICATIONS_TO || "barknrollpetcare@gmail.com";
+    const FROM_ADDR = `postmaster@${process.env.MAILGUN_DOMAIN}`;
+
+    // 1) Email to YOU with the lead details
+    const ownerEmail = {
+      from: `NEW INQUIRY <${FROM_ADDR}>`,
+      to: NOTIFY_TO,
       subject: `New Inquiry from ${name}`,
       text: `
-        Name: ${name}
-        Email: ${email}
-        Phone: ${phone}
-        Service Interested In: ${service || "N/A"}
-        Email Notifications: ${newsletter ? "Yes" : "No"}
-        Message: ${message || "No message provided"}
+Name: ${name}
+Email: ${email}
+Phone: ${phone}
+Service Interested In: ${service || "N/A"}
+Email Notifications: ${newsletter ? "Yes" : "No"}
+Message: ${message || "No message provided"}
+      `.trim(),
+    };
+
+    // 2) Auto-reply to the CLIENT
+    const clientEmail = {
+      from: `Bark n' Roll Pet Care <${FROM_ADDR}>`,
+      to: email,
+      subject: "We received your request — Bark n' Roll Pet Care",
+      // "Reply-To" so replies go to your inbox:
+      "h:Reply-To": NOTIFY_TO,
+      text: `Hi ${name},\n\nThank you for your interest — we will be in contact with you soon.\n\nIf this is urgent, call (805) 404-9981 or reply to this email.\n\n— Bark n' Roll Pet Care`,
+      html: `
+        <p>Hi ${name},</p>
+        <p>Thank you for your interest — we will be in contact with you soon.</p>
+        <p>If this is urgent, call <strong>(805) 404-9981</strong> or reply to this email.</p>
+        <p>— Bark n' Roll Pet Care</p>
       `,
     };
 
-    await mg.messages().send(emailData);
+    // Send both emails in parallel
+    await Promise.all([
+      mg.messages().send(ownerEmail),
+      mg.messages().send(clientEmail),
+    ]);
 
     return NextResponse.json(
-      { message: "Email sent successfully" },
+      { message: "Emails sent successfully" },
       { status: 200 }
     );
   } catch (error) {
