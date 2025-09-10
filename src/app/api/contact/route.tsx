@@ -79,12 +79,12 @@ Message: ${message || "No message provided"}
       subject: "We received your request — Bark n' Roll Pet Care",
       // "Reply-To" so replies go to your inbox:
       "h:Reply-To": NOTIFY_TO,
-      text: `Hi ${name},\n\nThank you for your interest — we will be in contact with you soon.\n\nIf this is urgent, call (805) 404-9981 or reply to this email.\n\n— Bark n' Roll Pet Care`,
+      text: `Hi ${name},\n\nThank you for your interest — we will be in contact within 24hrs.\n\nIf this is urgent, call (805) 404-9981 or  send an email to barknrollpetcare@gmail.com.\n\n— Bark n' Roll Pet Care`,
       html: `
         <p>Hi ${name},</p>
         <p>Thank you for your interest — we will be in contact with you soon.</p>
-        <p>If this is urgent, call <strong>(805) 404-9981</strong> or reply to this email.</p>
-        <p>— Bark n' Roll Pet Care</p>
+        <p>If this is urgent, call <strong>(805) 404-9981</strong> or send an email to <strong>barknrollpetcare@gmail.com</strong></p>
+        <p>— Jason from Bark n' Roll Pet Care</p>
       `,
     };
 
