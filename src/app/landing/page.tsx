@@ -71,7 +71,7 @@ export default function LandingCustom() {
             Trusted Dog Walking & Pet Sitting in Simi Valley
           </h1>
           {/* Trust badges */}
-          <div className="mt-5 text-lg flex flex-wrap items-center justify-center gap-4 text-[#2d4a35]/80">
+          <div className="mt-5 text-2xl flex flex-wrap items-center justify-center gap-4 text-[#2d4a35]/80">
             <span className="inline-flex items-center gap-2">
               <Shield className="w-6 h-6" /> Fully insured
             </span>
@@ -100,7 +100,7 @@ export default function LandingCustom() {
                   </span>
                 ))}
               </div>
-              <span className="mt-1 text-sm md:text-base font-medium text-green-800">
+              <span className="mt-1 text-lg md:text-base font-medium text-green-800">
                 5-star service loved by local pet parents
               </span>
             </div>
@@ -130,8 +130,49 @@ export default function LandingCustom() {
         </div>
       </section>
 
+      <section id="deals" className="relative z-10 max-w-2xl mx-auto px-5 pb-2">
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border-4 border-[#4a7c59] shadow-xl">
+          <h2 className="text-2xl sm:text-3xl text-center text-[#2d4a35] font-extrabold mb-6">
+            New Client Special
+          </h2>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <div className="w-full sm:w-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center border-2 border-[#4a7c59] relative overflow-hidden">
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4a7c59] to-[#6b9c7a]"></div>
+              <h3 className="text-lg text-[#4a7c59] font-bold mb-2">
+                3 Walks or Sits (30 min)
+              </h3>
+              <div className="inline-flex items-baseline justify-center gap-2 mb-1">
+                <span className="text-4xl text-[#2d4a35] font-extrabold">
+                  $67
+                </span>
+                <span className="text-xl text-red-800 line-through opacity-60">
+                  $75
+                </span>
+              </div>
+              <div className="text-lg text-[#2d4a35]/80 mb-4">10% off!!</div>
+              <p className="text-gray-700 text-sm leading-snug">
+                Perfect for trying us out — great value for new clients! Redeem
+                within 60 days.
+              </p>
+              <div className="mt-5">
+                <Link
+                  href="/contact"
+                  onClick={handleBookClick}
+                  className="inline-block bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-base font-bold shadow-md transition"
+                >
+                  Start My Trial
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* BENEFITS – concise & scannable */}
-      <section className="relative z-10 max-w-5xl mx-auto px-5 pb-6">
+      <section className="pt-10 relative z-10 max-w-5xl mx-auto px-5 pb-6">
+        <h2 className="text-2xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
+          What's Included?
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             "Walks and Sits starting at 30‑min up to 90-min",
@@ -152,59 +193,11 @@ export default function LandingCustom() {
       </section>
 
       {/* PACKAGE – only the 3‑walk deal, now 10% off ($67.50) */}
-      <section id="deals" className="relative z-10 max-w-5xl mx-auto px-5 pb-2">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border-4 border-[#4a7c59] shadow-xl">
-          <h2 className="text-2xl sm:text-3xl text-center text-[#2d4a35] font-extrabold mb-6">
-            New Client Starter Deal
-          </h2>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <div className="w-full sm:w-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center border-2 border-[#4a7c59] relative overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4a7c59] to-[#6b9c7a]"></div>
-              <h3 className="text-lg text-[#4a7c59] font-bold mb-2">
-                3 Walks or Sits (30 min)
-              </h3>
-              <div className="inline-flex items-baseline justify-center gap-2 mb-1">
-                <span className="text-4xl text-[#2d4a35] font-extrabold">
-                  $67
-                </span>
-                <span className="text-lg text-red-800 line-through opacity-60">
-                  $75
-                </span>
-              </div>
-              <div className="text-lg text-[#2d4a35]/80 mb-4">10% off!!</div>
-              <p className="text-gray-700 text-sm leading-snug">
-                Perfect for trying us out — great value for new clients!
-              </p>
-              <div className="mt-5">
-                <Link
-                  href="/contact"
-                  onClick={handleBookClick}
-                  className="inline-block bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-base font-bold shadow-md transition"
-                >
-                  Claim This Deal Now!
-                </Link>
-              </div>
-            </div>
-            <div className="text-center sm:text-left text-[#2d4a35]/90 max-w-md">
-              <ul className="space-y-2 text-sm">
-                <li>• New customers only</li>
-                <li>• Redeem all walks within 60 days</li>
-                <li>
-                  • Walks can be exchanged for equivalent pet‑sitting time
-                </li>
-              </ul>
-              <p className="mt-3 text-xs text-[#2d4a35]/70">
-                No long commitments required. Simple, transparent pricing.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* SERVICES – concise cards */}
       <section className="relative z-10 max-w-5xl mx-auto px-5 pt-6 pb-2">
-        <h2 className="text-xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
-          What We Do
+        <h2 className="text-2xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
+          Our Services
         </h2>
         <div className="flex flex-wrap justify-center gap-5">
           {[
