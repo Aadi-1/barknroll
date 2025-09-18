@@ -5,11 +5,17 @@ import { useEffect, useRef } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 import { CheckCircle, Phone, Shield, Star } from "lucide-react";
+import { Dancing_Script } from "next/font/google";
 
 // Optional: set your public phone number here to enable the Call button.
 // Example:
 //   const PHONE = "8054049981"; // no dashes/spaces, just digits
 const PHONE = "8054049981";
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["700"],
+});
 
 export default function LandingCustom() {
   const router = useRouter();
@@ -60,18 +66,18 @@ export default function LandingCustom() {
       <section className="relative z-10 max-w-5xl mx-auto px-5 pt-10 pb-8">
         <div className="text-center">
           <Image
-            src="/bnrlogoborder.svg"
+            src="/barknroll.png"
             alt="Bark n' Roll Logo"
-            width={160}
+            width={200}
             height={90}
             className="mx-auto mb-4"
             priority
           />
           <h1 className="text-3xl sm:text-4xl md:text-5xl text-[#2d4a35] font-extrabold leading-tight">
-            Trusted Dog Walking & Pet Sitting in Simi Valley
+            Trusted Pet Sitting <br /> & Dog Walking in Simi Valley
           </h1>
           {/* Trust badges */}
-          <div className="mt-5 text-2xl flex flex-wrap items-center justify-center gap-4 text-[#2d4a35]/80">
+          <div className="mt-5 pb-2 text-2xl flex flex-wrap items-center justify-center gap-4 text-[#2d4a35]/80">
             <span className="inline-flex items-center gap-2">
               <Shield className="w-6 h-6" /> Fully insured
             </span>
@@ -81,29 +87,6 @@ export default function LandingCustom() {
             <span className="inline-flex items-center gap-2">
               <CheckCircle className="w-6 h-6" /> Pet CPR/First‑Aid Certified
             </span>
-          </div>
-
-          {/* Social proof row */}
-          {/* Social-proof row */}
-          <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
-            {/* ...your other badges... */}
-
-            {/* Stars + caption (two lines, same div, white background) */}
-            <div className="inline-flex flex-col items-center text-center bg-white px-4 py-2 rounded-lg shadow border">
-              <div className="flex gap-1" aria-label="5 out of 5 stars">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <span
-                    key={i}
-                    className="text-yellow-500 text-xl leading-none"
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-              <span className="mt-1 text-lg md:text-base font-medium text-green-800">
-                5-star service loved by local pet parents
-              </span>
-            </div>
           </div>
 
           {/* Primary CTA */}
@@ -130,10 +113,11 @@ export default function LandingCustom() {
         </div>
       </section>
 
+      {/* Social proof row */}
       <section id="deals" className="relative z-10 max-w-2xl mx-auto px-5 pb-2">
-        <div className="bg-white rounded-3xl p-6 sm:p-8 border-4 border-[#4a7c59] shadow-xl">
+        <div className="bg-white rounded-3xl p-4 sm:p-8 border-4 border-[#4a7c59] shadow-xl">
           <h2 className="text-2xl sm:text-3xl text-center text-[#2d4a35] font-extrabold mb-6">
-            New Client Special
+            Try the New Client Deal!!
           </h2>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <div className="w-full sm:w-80 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center border-2 border-[#4a7c59] relative overflow-hidden">
@@ -162,6 +146,27 @@ export default function LandingCustom() {
                 >
                   Start My Trial
                 </Link>
+              </div>
+              {/* Social-proof row */}
+              <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
+                {/* ...your other badges... */}
+
+                {/* Stars + caption (two lines, same div, white background) */}
+                <div className="inline-flex flex-col items-center text-center bg-white px-4 py-2 rounded-lg shadow border">
+                  <div className="flex gap-1" aria-label="5 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span
+                        key={i}
+                        className="text-yellow-500 text-xl leading-none"
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                  <span className="mt-1 text-lg md:text-base font-medium text-green-800">
+                    5-star service loved by local pet parents
+                  </span>
+                </div>
               </div>
             </div>
           </div>
