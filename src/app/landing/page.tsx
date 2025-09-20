@@ -63,8 +63,10 @@ export default function LandingCustom() {
                   src="/dogwalkingstock.jpg"
                   alt="Happy dog on a walk with Bark n’ Roll"
                   fill
-                  priority
                   className="object-cover"
+                  priority
+                  fetchPriority="high"
+                  sizes="(max-width: 767px) 0px, 360px" // 0 on mobile so it’s not chosen
                 />
               </div>
             </div>
@@ -92,8 +94,10 @@ export default function LandingCustom() {
                     src="/dogwalkingstock.jpg"
                     alt="Dog enjoying a walk"
                     fill
-                    priority
                     className="object-cover"
+                    priority
+                    fetchPriority="high"
+                    sizes="(max-width: 767px) 420px, 0px" // 0 on desktop
                   />
                 </div>
               </div>
