@@ -23,7 +23,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="w-full overflow-x-hidden">
+    <main className="w-full overflow-x-hidden font-serif">
       <NavBar />
       <div>
         {/* HERO – compact height, darker greens, mobile image under logo */}
