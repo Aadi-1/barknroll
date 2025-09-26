@@ -18,8 +18,6 @@ const petImages = [
   { src: "/pet8.jpg", alt: "Happy Pup 8", width: 800, height: 600 },
   { src: "/pet9.jpg", alt: "Happy Pup 9", width: 800, height: 600 },
   { src: "/pet10.jpg", alt: "Happy Pup 10", width: 800, height: 600 },
-  { src: "/pet11.jpg", alt: "Happy Pup 11", width: 800, height: 600 },
-  { src: "/pet12.jpg", alt: "Happy Pup 12", width: 800, height: 600 },
 ];
 
 export default function PetCarousel() {

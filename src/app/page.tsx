@@ -9,7 +9,7 @@ import Script from "next/script";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
-  weight: "700", // Adjust weight as needed
+  weight: "700",
 });
 
 const lora = Lora({
@@ -26,99 +26,117 @@ export default function Home() {
     <main className="w-full overflow-x-hidden">
       <NavBar />
       <div>
-        <section className="relative w-full min-h-[90vh] flex flex-col bg-orange-100  items-center  border-b border-black">
+        {/* HERO – compact height, darker greens, mobile image under logo */}
+        <section className="relative w-full min-h-[72vh] flex flex-col items-center border-b border-black bg-gradient-to-br from-[#f5f0e8] to-[#e8ddd0]">
+          {/* Decorative pawprint moved to bottom-right on desktop */}
           <Image
             src="/pawprintbackground.svg"
             alt="Paw Print"
-            width={450}
-            height={50}
-            className="
-              hidden 
-              sm:block 
-              absolute 
-              top-10 
-              left-8 
-              opacity-30 
-              rotate-6
-            "
-          />
-          <Image
-            src="/pawprintbackground.svg"
-            alt="Paw Print"
-            width={350}
+            width={420}
             height={60}
-            className="
-              hidden 
-              md:block 
-              absolute 
-              top-1/4 
-              right-1 
-              opacity-20 
-              rotate-30
-            "
+            loading="lazy"
+            className="hidden md:block absolute bottom-6 right-6 opacity-25 rotate-12"
           />
-          <Image
-            src="/pawprintbackground.svg"
-            alt="Paw Print"
-            width={275}
-            height={40}
-            className="
-              hidden
-              md:block
-              absolute
-              bottom-0
-              left-10
-              opacity-30
-              -rotate-20
-            "
-          />
-          <div>
-            <Image
-              src="/bnrlogoborder.svg" // image from public folder
-              width={370}
-              height={370}
-              alt="Bark n't Roll Logo"
-              className="mx-auto "
-            />
-          </div>
-          {/* Tagline (large screen only) */}
-          <h1
-            className={`${dancingScript.className} hidden md:block text-5xl text-green-800 text-center font-weight:100 logo`}
-          >
-            For all your furry, feathered, and finned friends’ needs!
-          </h1>
 
-          {/* Tagline (small screen) */}
-          <h1
-            className={`${lora.className} text-green-800 pt-8 text-2xl italic text-center w-full px-4`}
-          >
-            Pet Sitting, Dog Walking &amp; More in the Simi Valley Area!
-          </h1>
+          <div className="w-full max-w-6xl px-5 pt-6 md:pt-10 grid md:grid-cols-[1.1fr_0.9fr] items-center gap-5 md:gap-8">
+            {/* LEFT: logo + headline + tagline + buttons */}
+            <div className="order-2 md:order-1 md:pl-6 lg:pl-10">
+              {/* Use same name logo as landing page */}
+              <Image
+                src="/bnbNamelogo2.png"
+                alt="Bark n’ Roll Pet Care brand wordmark"
+                width={340}
+                height={130}
+                loading="eager"
+                className="mx-auto md:mx-0 w-56 sm:w-64 md:w-80 lg:w-[340px] h-auto"
+              />
 
-          {/* Buttons */}
-          <div className="flex flex-col items-center justify-center gap-4 pt-10 w-full md:flex-row">
-            <Link href="/contact">
-              <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
-                New Client?{" "}
-                <span className="underline underline-offset-4">
-                  Book a Meet-and-Greet
+              {/* Mobile hero image (under logo like landing) */}
+              <div className="md:hidden mt-3">
+                <div className="relative w-full max-w-[440px] mx-auto rounded-2xl overflow-hidden shadow">
+                  <div className="relative w-full h-48 sm:h-56">
+                    <Image
+                      src="/dogwalkingstock.jpg"
+                      alt="Dog enjoying a walk"
+                      fill
+                      fetchPriority="high"
+                      priority
+                      sizes="(max-width: 767px) 440px, 0px"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Headline (darker green) */}
+              <h1 className="mt-3 md:mt-2 text-[#245c48] font-extrabold leading-tight text-[28px] sm:text-3xl md:text-4xl text-center md:text-left">
+                <span className="block">
+                  Trusted, Loving{" "}
+                  <span className="inline md:hidden">
+                    <br />
+                  </span>
+                  <span className="text-[#245c48]">Pet Sitting</span> & Dog
+                  Walking
                 </span>
-              </span>
-            </Link>
-            <a
-              href="https://0523barknroll.petsoftware.net/clientportal/login?goto=https://0523barknroll.petsoftware.net/clientportal/schedule.owl"
-              target="_blank"
-            >
-              <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
-                Returning Client?{" "}
-                <span className="underline underline-offset-4">Log In</span>
-              </span>
-            </a>
+                <span className="block">in Simi Valley</span>
+              </h1>
+
+              {/* Subcopy (darker green, larger) */}
+              <p className="mt-3 text-lg sm:text-xl md:text-2xl text-[#245c48]/90 max-w-2xl text-center md:text-left font-medium">
+                Because your furry family deserves the best care—even when you
+                can’t be there.
+              </p>
+
+              {/* Buttons (keep original look, one line on desktop) */}
+              <div className="flex flex-col sm:flex-row sm:flex-nowrap items-center justify-center md:justify-start gap-3 pt-8">
+                <Link href="/contact">
+                  <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
+                    New Client?{" "}
+                    <span className="underline underline-offset-4">
+                      Book a Meet-and-Greet
+                    </span>
+                  </span>
+                </Link>
+                <a
+                  href="https://0523barknroll.petsoftware.net/clientportal/login?goto=https://0523barknroll.petsoftware.net/clientportal/schedule.owl"
+                  target="_blank"
+                >
+                  <span className="inline-block bg-green-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-800 transition-colors text-center">
+                    Returning Client?{" "}
+                    <span className="underline underline-offset-4">Log In</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            {/* RIGHT: hero image (bigger on desktop) */}
+            <div className="order-1 md:order-2 w-full hidden md:block md:justify-self-end">
+              <div className="relative mx-auto md:mx-0 w-full max-w-[420px] rounded-3xl overflow-hidden shadow-xl">
+                <div className="relative w-full h-[430px]">
+                  <Image
+                    src="/dogwalkingstock.jpg"
+                    alt="Happy dog on a walk with Bark n’ Roll"
+                    fill
+                    fetchPriority="high"
+                    priority
+                    sizes="(max-width: 767px) 0px, 420px"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </section>
+
+        {/* Clean, crisp fade between hero and services (line removed) */}
+        <div aria-hidden="true" className="relative -mt-px w-full">
+          <div className="h-8 sm:h-12 bg-gradient-to-b from-[#e8ddd0] via-[#f1ebe3] to-white" />
+        </div>
+
+        {/* SERVICES HOME */}
         <section
           id="servicesHome"
-          className="bg-white flex flex-col  items-center py-10 border-b border-black"
+          className="bg-white flex flex-col items-center py-10 border-b border-black"
         >
           <h2 className="text-3xl text-green-800 pt-10 ">
             Our Services
@@ -129,15 +147,14 @@ export default function Home() {
             <span className="font-semibold">written update </span> and{" "}
             <span className="font-semibold">photos</span>!
           </p>
-          {/* total Class */}
           <div className="flex flex-col md:flex-row gap-6 py-10 items-start">
-            {/* Dog Walking */}
             <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-800 bg-white shadow-sm p-4">
               <Image
-                src="/dogwalk4.svg" // image from public folder
+                src="/dogwalk4.svg"
                 width={80}
                 height={100}
                 alt="Dog-Walking"
+                loading="lazy"
                 className="mx-auto mb-3"
               />
               <h3 className="text-green-800 mb-4 text-xl">Dog Walking</h3>
@@ -152,13 +169,14 @@ export default function Home() {
                 </span>
               </p>
             </div>
-            {/* Pet SItting */}
+
             <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-800 bg-white shadow-sm p-4">
               <Image
-                src="/dogwalk2.svg" // image from public folder
+                src="/dogwalk2.svg"
                 width={80}
                 height={100}
-                alt="Dog-Walking"
+                alt="Pet-Sitting"
+                loading="lazy"
                 className="mx-auto mb-3"
               />
               <h3 className="text-green-800 mb-4 text-xl">Pet Sitting</h3>
@@ -173,13 +191,14 @@ export default function Home() {
                 </span>
               </p>
             </div>
-            {/* Bed n&apos;t Breakfast */}
+
             <div className="flex flex-col items-center justify-start w-70 h-90 rounded-lg border-2 border-green-800 bg-white shadow-sm p-4">
               <Image
-                src="/bednbreak.svg" // image from public folder
+                src="/bednbreak.svg"
                 width={80}
                 height={100}
                 alt="overnights-img"
+                loading="lazy"
                 className="mx-auto mb-3"
               />
               <h3 className="text-green-800 mb-4 text-xl">
@@ -200,6 +219,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+
           <div className="text-center">
             <p className="mb-2 text-green-800">
               For more information on Full Pricing & Details on our Services{" "}
@@ -213,6 +233,7 @@ export default function Home() {
         </section>
 
         <PetCarousel />
+
         <section className="bg-orange-100 px-8 py-6 border-b border-black">
           <h2 className="text-2xl text-center font-semibold text-green-800 mb-4">
             Our Insurance Partners
@@ -231,12 +252,12 @@ export default function Home() {
             through these trusted providers.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
-            {/* Example logos (replace with your actual images/paths) */}
             <Image
               src="/petsitterinsurance.svg"
               alt="Insurance 1"
               width={120}
               height={80}
+              loading="lazy"
               className="object-contain"
             />
             <Image
@@ -244,6 +265,7 @@ export default function Home() {
               alt="Insurance 2"
               width={120}
               height={80}
+              loading="lazy"
               className="object-contain"
             />
             <Image
@@ -251,13 +273,15 @@ export default function Home() {
               alt="Insurance 3"
               width={120}
               height={80}
+              loading="lazy"
               className="object-contain"
             />
           </div>
         </section>
+
         <section
           id="lastCTA"
-          className="bg-white flex flex-col  items-center py-10 border-b border-black"
+          className="bg-white flex flex-col items-center py-10 border-b border-black"
         >
           <h2 className="text-green-800 text-xl font-semibold">
             Ready to book?
@@ -271,6 +295,15 @@ export default function Home() {
           </Link>
         </section>
       </div>
+
+      {/* Sticky CTA (bottom-right) — matches landing page button style */}
+      <Link
+        href="/contact"
+        aria-label="Book a free meet and greet"
+        className="fixed bottom-4 right-4 z-40 bg-[#4a7c59] hover:bg-[#3d694b] text-white px-5 py-3 sm:px-6 sm:py-3 rounded-full text-sm sm:text-base font-bold shadow-md transition"
+      >
+        Book a Free Meet &amp; Greet
+      </Link>
     </main>
   );
 }
