@@ -6,6 +6,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import ClarityScript from "./components/clarityscript";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -36,6 +37,7 @@ export default function RootLayout({
             content="Bark n' Roll Pet Care offers professional dog walking, pet sitting, and overnight services to keep your furry friends happy and healthy."
           />
         </Head>
+        <ClarityScript />
         {/* Navbar */}
 
         {/* Render Page Content */}
