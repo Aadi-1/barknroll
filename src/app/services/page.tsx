@@ -151,7 +151,7 @@ export default function ServicesPage() {
                 </span>{" "}
                 2 hour night visit, 1 hour morning visit
               </h2>
-              <ul className="list-disc list-inside space-y-1 text-green-900 list-none">
+              <ul className="list-disc list-inside space-y-5 text-green-900 list-none">
                 <li>
                   <strong>Evening Visit (e.g., 5:00–7:00 PM):</strong> We arrive
                   at your home in the early evening for a 2‑hour care session.
@@ -159,15 +159,12 @@ export default function ServicesPage() {
                 <li>
                   <strong>Overnight Absence:</strong> After we finish the
                   evening visit, we leave your home for the night, but return
-                  early in the morning to make sure your pet starts the day off
-                  right.
+                  early in the morning.
                 </li>
                 <li>
                   <strong>Morning Visit (e.g., 7:00–8:00 AM):</strong> We come
                   back for a 1‑hour check‑in to feed breakfast, refresh water,
                   let your pet outside, and offer playtime or a short walk.
-                  Afterward, we’ll send another update so you know how
-                  everything went.
                 </li>
                 <li>
                   <strong>Extras:</strong> During these sessions, we can take
@@ -196,12 +193,9 @@ export default function ServicesPage() {
                 <span className="text-xl font-semibold text-green-800 mb-2">
                   Overnights:
                 </span>{" "}
-                Special Request Only*
+                *Special Request Only, No Boarding*
               </h2>
-              <ul className="list-disc list-inside space-y-1 text-green-900  list-none">
-                <li>
-                  <strong>Our typical overnight schedule:</strong>
-                </li>
+              <ul className="list-disc list-inside space-y-5 text-green-900  list-none">
                 <li>
                   <strong>Dinner Visit (5:00–7:00 PM):</strong> We arrive at
                   your home around dinner time for a 2‑hour care session. During

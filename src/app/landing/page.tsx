@@ -273,6 +273,10 @@ export default function LandingCustom() {
         <h2 className="text-2xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
           Our Services
         </h2>
+        <p className="text-md sm:text-md text-[#2d4a35] font-extrabold mb-4 text-center">
+          {" "}
+          (Click to learn more)
+        </p>
         <div className="flex flex-wrap justify-center gap-5">
           {[
             {
@@ -294,24 +298,23 @@ export default function LandingCustom() {
               alt: "Bed n Breakfast",
             },
           ].map((card) => (
-            <div
-              key={card.title}
-              className="bg-white rounded-2xl p-4 border-4 border-[#4a7c59] shadow-md w-72 hover:shadow-lg transition flex flex-col"
-            >
-              <Image
-                src={card.img}
-                alt={card.alt}
-                width={80}
-                height={80}
-                className="mx-auto mb-4"
-              />
-              <h3 className="text-lg text-[#4a7c59] font-bold mb-2 text-center">
-                {card.title}
-              </h3>
-              <p className="text-gray-700 text-sm text-center leading-relaxed flex-grow">
-                {card.desc}
-              </p>
-            </div>
+            <Link key={card.title} href="/services" className="group w-72">
+              <div className="bg-white rounded-2xl p-4 border-4 border-[#4a7c59] shadow-md hover:shadow-lg transition flex flex-col h-full cursor-pointer">
+                <Image
+                  src={card.img}
+                  alt={card.alt}
+                  width={80}
+                  height={80}
+                  className="mx-auto mb-4"
+                />
+                <h3 className="text-lg text-[#4a7c59] font-bold mb-2 text-center group-hover:underline">
+                  {card.title}
+                </h3>
+                <p className="text-gray-700 text-sm text-center leading-relaxed flex-grow">
+                  {card.desc}
+                </p>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
