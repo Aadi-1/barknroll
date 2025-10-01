@@ -118,15 +118,15 @@ export default function LandingCustom() {
             {/* Trust row */}
             <div className="mt-3 md:mt-4 flex flex-wrap justify-center md:justify-start items-center gap-x-6 gap-y-3 text-[#2d4a35]/90">
               <span className="inline-flex items-center gap-2 text-[16px] sm:text-xl font-semibold">
-                <Shield className="w-6 h-6 sm:w-7 sm:h-7" /> Fully insured
+                <Shield className="w-6 h-6 sm:w-7 sm:h-7" /> 5+ years Experience
               </span>
               <span className="inline-flex items-center gap-2 text-[16px] sm:text-xl font-semibold">
                 <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7" />{" "}
                 Background-checked
               </span>
               <span className="inline-flex items-center gap-2 text-[16px] sm:text-xl font-semibold">
-                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7" /> Pet
-                CPR/First-Aid Certified
+                <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7" /> Pet CPR
+                Certified and Insured
               </span>
             </div>
 
@@ -140,19 +140,24 @@ export default function LandingCustom() {
               <Link
                 href="/contact"
                 onClick={handleBookClick}
-                aria-label="Book a free meet and greet"
+                aria-label="Book a Free First Visit"
                 className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
               >
-                Book a Free Meet & Greet
+                Get your 1st Visit for FREE
               </Link>
+
               {!!PHONE && (
                 <a
                   href={`tel:+1${PHONE}`}
                   onClick={handleCallClick}
-                  aria-label="Call now"
+                  aria-label={`Call ${PHONE}`}
+                  title={`Call ${PHONE}`}
                   className="inline-flex items-center justify-center gap-2 text-[#2d4a35] bg-white border border-[#4a7c59]/40 px-5 py-3 rounded-full text-base font-semibold shadow-sm hover:shadow transition"
                 >
-                  <Phone className="w-5 h-5" /> Call Now
+                  <Phone className="w-5 h-5" />
+                  <span className="whitespace-nowrap text-lg">
+                    Call (805) - 404 - 9981
+                  </span>
                 </a>
               )}
             </div>
@@ -360,7 +365,7 @@ export default function LandingCustom() {
             onClick={handleBookClick}
             className="basis-2/3 text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-3 py-2.5 rounded-full text-sm font-bold shadow-md transition"
           >
-            Book a Free Meet & Greet
+            Book Your Free First Visit!
           </Link>
           {!!PHONE && (
             <a
@@ -371,6 +376,34 @@ export default function LandingCustom() {
             >
               <Phone className="w-5 h-5" />
               <span>Call Now</span>
+            </a>
+          )}
+        </div>
+      </div>
+
+      <div className="hidden md:block fixed bottom-6 right-6 z-40">
+        <div className="flex flex-col gap-3 items-stretch">
+          <Link
+            href="/contact"
+            onClick={handleBookClick}
+            aria-label="Book a Free First Visit"
+            className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
+          >
+            Get your 1st Visit for FREE
+          </Link>
+
+          {!!PHONE && (
+            <a
+              href={`tel:+1${PHONE}`}
+              onClick={handleCallClick}
+              aria-label="Call (805) - 404 - 9981"
+              title="Call (805) - 404 - 9981"
+              className="inline-flex items-center justify-center gap-2 text-[#2d4a35] bg-white border border-[#4a7c59]/40 px-5 py-3 rounded-full text-base font-semibold shadow-sm hover:shadow transition"
+            >
+              <Phone className="w-5 h-5" />
+              <span className="whitespace-nowrap text-lg">
+                Call (805) - 404 - 9981
+              </span>
             </a>
           )}
         </div>
