@@ -329,6 +329,7 @@ export default function LandingCustom() {
         <h2 className="text-xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
           FAQ
         </h2>
+
         <div className="space-y-3">
           {[
             {
@@ -344,16 +345,23 @@ export default function LandingCustom() {
               a: "Simi Valley and nearby neighborhoods. Message us to confirm your location.",
             },
           ].map((item) => (
-            <details
+            <div
               key={item.q}
-              className="group rounded-xl bg-white border border-[#4a7c59]/30 p-4"
+              className="rounded-xl bg-white border border-[#4a7c59]/30 p-4"
             >
-              <summary className="cursor-pointer list-none text-[#2d4a35] font-semibold">
-                {item.q}
-              </summary>
+              <h3 className="text-[#2d4a35] font-semibold">{item.q}</h3>
               <p className="mt-2 text-sm text-[#2d4a35]/90">{item.a}</p>
-            </details>
+            </div>
           ))}
+        </div>
+
+        <div className="mt-6 flex justify-center">
+          <Link
+            href="/services"
+            className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
+          >
+            Learn More
+          </Link>
         </div>
       </section>
 
