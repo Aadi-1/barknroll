@@ -46,12 +46,9 @@ export default function RootLayout({
         <footer className="bg-black text-white py-6">
           <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-sm text-center md:text-left">
-              © 2025 Created By{" "}
               <a href="https://www.clickbuilt.net/" target="_blank">
-                {" "}
-                ClickBuilt{" "}
-              </a>{" "}
-              – All Rights Reserved
+                © 2025 Created By ClickBuilt – All Rights Reserved
+              </a>
             </div>
             <div className="flex gap-4">
               <a href="#" aria-label="Facebook" className="...">

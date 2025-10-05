@@ -7,9 +7,6 @@ import { sendGTMEvent, sendGAEvent } from "@next/third-parties/google";
 import { CheckCircle, Phone, Shield, Star } from "lucide-react";
 import { Dancing_Script } from "next/font/google";
 
-// Optional: set your public phone number here to enable the Call button.
-// Example:
-//   const PHONE = "8054049981"; // no dashes/spaces, just digits
 const PHONE = "8054049981";
 
 const dancingScript = Dancing_Script({
@@ -27,10 +24,7 @@ export default function LandingCustom() {
   }, []);
 
   const track = (name: string, extra: Record<string, any> = {}) => {
-    const params = {
-      source_page: pathname || "/landing",
-      ...extra,
-    };
+    const params = { source_page: pathname || "/landing", ...extra };
     sendGAEvent("event", name, params);
     sendGTMEvent({ event: name, ...params });
   };
@@ -66,7 +60,7 @@ export default function LandingCustom() {
                   className="object-cover"
                   priority
                   fetchPriority="high"
-                  sizes="(max-width: 767px) 0px, 360px" // 0 on mobile so it’s not chosen
+                  sizes="(max-width: 767px) 0px, 360px"
                 />
               </div>
             </div>
@@ -74,7 +68,7 @@ export default function LandingCustom() {
 
           {/* Left column */}
           <div className="order-2 md:order-1">
-            {/* New logo with a little breathing room on all viewports */}
+            {/* Logo */}
             <div className="py-2 sm:py-3">
               <Image
                 src="/bnbNamelogo2.png"
@@ -86,7 +80,7 @@ export default function LandingCustom() {
               />
             </div>
 
-            {/* Mobile hero image (small, balanced) */}
+            {/* Mobile hero image */}
             <div className="md:hidden mt-3">
               <div className="relative w-full max-w-[420px] mx-auto rounded-2xl overflow-hidden shadow">
                 <div className="relative w-full h-40 sm:h-44">
@@ -97,7 +91,7 @@ export default function LandingCustom() {
                     className="object-cover"
                     priority
                     fetchPriority="high"
-                    sizes="(max-width: 767px) 420px, 0px" // 0 on desktop
+                    sizes="(max-width: 767px) 420px, 0px"
                   />
                 </div>
               </div>
@@ -135,13 +129,13 @@ export default function LandingCustom() {
               can’t be there.
             </p>
 
-            {/* Desktop CTAs (mobile uses sticky bar) */}
-            <div className="mt-5 hidden md:flex items-center gap-3 justify-start">
+            {/* Desktop CTAs */}
+            <div className="mt-5 hidden md:flex items-center gap-3 justify-start flex-wrap">
               <Link
                 href="/contact"
                 onClick={handleBookClick}
                 aria-label="Book a Free First Visit"
-                className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
+                className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-7 py-3 rounded-full text-lg sm:text-xl font-bold shadow-lg whitespace-nowrap transition-all duration-200 transform hover:-translate-y-0.5"
               >
                 Get your 1st Visit for FREE
               </Link>
@@ -152,7 +146,7 @@ export default function LandingCustom() {
                   onClick={handleCallClick}
                   aria-label={`Call ${PHONE}`}
                   title={`Call ${PHONE}`}
-                  className="inline-flex items-center justify-center gap-2 text-[#2d4a35] bg-white border border-[#4a7c59]/40 px-5 py-3 rounded-full text-base font-semibold shadow-sm hover:shadow transition"
+                  className="inline-flex items-center justify-center gap-2 text-[#2d4a35] bg-white border border-[#4a7c59]/40 px-6 py-3 rounded-full text-base sm:text-lg font-semibold shadow-sm hover:bg-gray-50 transition-all duration-200 transform hover:-translate-y-0.5"
                 >
                   <Phone className="w-5 h-5" />
                   <span className="whitespace-nowrap text-lg">
@@ -164,36 +158,44 @@ export default function LandingCustom() {
           </div>
         </div>
 
-        {/* Two separate boxes: Deal (left) and Testimonials (right) */}
-        <div className="mt-7 md:mt-9 grid md:grid-cols-2 gap-6 md:gap-8">
-          {/* Deal box */}
-          <div className="bg-white rounded-3xl p-5 sm:p-7 border-4 border-[#4a7c59] shadow-xl">
-            <h2 className="text-2xl sm:text-3xl text-center text-[#2d4a35] font-extrabold mb-5">
+        {/* Deal + Services */}
+        <div className="mt-7 md:mt-9 grid md:grid-cols-2 gap-6 md:gap-8 items-start">
+          {/* Deal box — compact */}
+          <div className="bg-white rounded-3xl p-5 sm:p-6 border-4 border-[#4a7c59] shadow-xl self-start">
+            <h2 className="text-2xl sm:text-3xl text-center text-[#2d4a35] font-extrabold mb-4">
               Try the New Client Deal!!
             </h2>
-            <div className="w-full sm:w-96 mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-6 text-center border-2 border-[#4a7c59] relative overflow-hidden">
+            <div className="mx-auto bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-5 text-center border-2 border-[#4a7c59] relative overflow-hidden max-w-sm">
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#4a7c59] to-[#6b9c7a]" />
-              <h3 className="text-lg text-[#4a7c59] font-bold mb-2">
+              <h3 className="text-base sm:text-lg text-[#4a7c59] font-bold mb-2">
                 3 Walks or Sits (30 min)
               </h3>
-              <div className="inline-flex items-baseline justify-center gap-2 mb-1">
-                <span className="text-4xl text-[#2d4a35] font-extrabold">
+              <div
+                className="inline-flex items-baseline justify-center gap-2 mb-1"
+                data-clarity-unmask
+              >
+                <span className="text-3xl sm:text-4xl text-[#2d4a35] font-extrabold">
                   $67
                 </span>
-                <span className="text-xl text-red-800 line-through opacity-60">
+                <span className="text-lg sm:text-xl text-red-800 line-through opacity-60">
                   $75
                 </span>
               </div>
-              <div className="text-lg text-[#2d4a35]/80 mb-4">10% off!!</div>
+              <div
+                className="text-base sm:text-lg text-[#2d4a35]/80 mb-3"
+                data-clarity-unmask
+              >
+                10% off!!
+              </div>
               <p className="text-gray-700 text-sm leading-snug">
                 Perfect for trying us out — great value for new clients! Redeem
                 within 60 days.
               </p>
-              <div className="mt-5">
+              <div className="mt-4">
                 <Link
                   href="/contact"
                   onClick={handleBookClick}
-                  className="inline-block bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-base font-bold shadow-md transition"
+                  className="inline-block bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-base font-bold shadow-md transition-colors duration-200"
                 >
                   Start My Trial
                 </Link>
@@ -201,50 +203,78 @@ export default function LandingCustom() {
             </div>
           </div>
 
-          {/* Testimonials box */}
-          <div className="bg-white rounded-3xl p-5 sm:p-7 border-4 border-[#4a7c59] shadow-xl">
-            <h3 className="text-2xl text-[#2d4a35] font-extrabold mb-4 text-center md:text-left">
-              Why Pet Parents Choose Us
-            </h3>
-            <div className="grid grid-cols-1 gap-3">
+          {/* Services box (cards pop-out on hover) */}
+          <div className="bg-white rounded-3xl p-5 sm:p-6 border-4 border-[#4a7c59] shadow-xl self-start">
+            <h2 className="text-2xl sm:text-3xl text-center text-[#2d4a35] font-extrabold mb-4">
+              Our Services
+            </h2>
+
+            <div className="flex flex-col gap-4">
               {[
                 {
-                  quote:
-                    "Bark n’ Roll took amazing care of Luna while we were away. Loved the daily photo updates!",
-                  name: "Jane S.",
+                  title: "Dog Walking",
+                  desc: "Daily walks matched to your pup’s energy & routine.",
+                  img: "/dogwalk4.svg",
+                  alt: "Dog Walking",
+                  price: "$25",
+                  priceNote: "per walk",
                 },
                 {
-                  quote:
-                    "Reliable and so friendly. Our dog actually waits by the door for their walker!",
-                  name: "Marcus T.",
+                  title: "In-Home Pet Sitting",
+                  desc: "Stress-free care in your home while you’re away.",
+                  img: "/dogwalk2.svg",
+                  alt: "Pet Sitting",
+                  price: "$25",
+                  priceNote: "per sit",
                 },
                 {
-                  quote:
-                    "Super easy to book a meet & greet. We felt at ease from day one.",
-                  name: "Ana G.",
+                  title: "Bed n’ Breakfast",
+                  desc: "Evening & morning check-ins for maximum comfort.",
+                  img: "/bednbreak.svg",
+                  alt: "Bed n Breakfast",
+                  price: "$95",
+                  priceNote: "per night",
                 },
-              ].map((t) => (
-                <figure
-                  key={t.name}
-                  className="rounded-2xl border border-[#4a7c59]/30 p-4 bg-gray-50"
+              ].map((card) => (
+                <Link
+                  key={card.title}
+                  href="/services"
+                  className="group rounded-2xl border-2 border-[#4a7c59]/40 bg-gray-50 p-4 transition-transform duration-200 will-change-transform motion-safe:hover:scale-[1.05] motion-safe:active:scale-[0.99] hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4a7c59]/60"
                 >
-                  <div className="flex items-center gap-1 mb-2">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 text-[#f5a524] fill-current"
-                      />
-                    ))}
+                  <div className="flex items-center gap-4">
+                    <Image
+                      src={card.img}
+                      alt={card.alt}
+                      width={64}
+                      height={64}
+                      className="shrink-0"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="text-lg sm:text-xl text-[#4a7c59] font-bold">
+                          {card.title}
+                        </h3>
+                        <div className="text-right" data-clarity-unmask>
+                          <div className="text-2xl sm:text-3xl text-[#2d4a35] font-extrabold leading-none">
+                            {card.price}
+                          </div>
+                          <div className="text-xs sm:text-sm text-[#2d4a35]/80 leading-tight">
+                            {card.priceNote}
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-gray-700 text-sm sm:text-base mt-1">
+                        {card.desc}
+                      </p>
+                    </div>
                   </div>
-                  <blockquote className="text-[#2d4a35] text-sm">
-                    “{t.quote}”
-                  </blockquote>
-                  <figcaption className="mt-2 text-xs text-[#2d4a35]/70">
-                    — {t.name}
-                  </figcaption>
-                </figure>
+                </Link>
               ))}
             </div>
+
+            <p className="text-center text-sm text-black /70 mt-4">
+              Tap a service to see details & options.
+            </p>
           </div>
         </div>
       </section>
@@ -273,58 +303,53 @@ export default function LandingCustom() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="relative z-10 max-w-5xl mx-auto px-5 pt-6 pb-2">
+      {/* TESTIMONIALS */}
+      <section className="relative z-10 max-w-5xl mx-auto px-5 pt-6 pb-8">
         <h2 className="text-2xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
-          Our Services
+          Why Pet Parents Choose Us
         </h2>
-        <p className="text-md sm:text-md text-[#2d4a35] font-extrabold mb-4 text-center">
-          {" "}
-          (Click to learn more)
-        </p>
-        <div className="flex flex-wrap justify-center gap-5">
+        <div className="grid grid-cols-1 gap-3">
           {[
             {
-              title: "Expert Dog Walking",
-              desc: "Daily walks matched to your pup’s energy & routine.",
-              img: "/dogwalk4.svg",
-              alt: "Dog Walking",
+              quote:
+                "Bark n’ Roll took amazing care of Luna while we were away. Loved the daily photo updates!",
+              name: "Jane S.",
             },
             {
-              title: "In-Home Pet Sitting",
-              desc: "Stress-free care in your home while you’re away.",
-              img: "/dogwalk2.svg",
-              alt: "Pet Sitting",
+              quote:
+                "Reliable and so friendly. Our dog actually waits by the door for their walker!",
+              name: "Marcus T.",
             },
             {
-              title: "Bed n’ Breakfast",
-              desc: "Evening & morning check-ins for maximum comfort.",
-              img: "/bednbreak.svg",
-              alt: "Bed n Breakfast",
+              quote:
+                "Super easy to book a meet & greet. We felt at ease from day one.",
+              name: "Ana G.",
             },
-          ].map((card) => (
-            <Link key={card.title} href="/services" className="group w-72">
-              <div className="bg-white rounded-2xl p-4 border-4 border-[#4a7c59] shadow-md hover:shadow-lg transition flex flex-col h-full cursor-pointer">
-                <Image
-                  src={card.img}
-                  alt={card.alt}
-                  width={80}
-                  height={80}
-                  className="mx-auto mb-4"
-                />
-                <h3 className="text-lg text-[#4a7c59] font-bold mb-2 text-center group-hover:underline">
-                  {card.title}
-                </h3>
-                <p className="text-gray-700 text-sm text-center leading-relaxed flex-grow">
-                  {card.desc}
-                </p>
+          ].map((t) => (
+            <figure
+              key={t.name}
+              className="rounded-2xl border border-[#4a7c59]/30 p-4 bg-white shadow-sm"
+            >
+              <div className="flex items-center gap-1 mb-2">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star
+                    key={i}
+                    className="w-4 h-4 text-[#f5a524] fill-current"
+                  />
+                ))}
               </div>
-            </Link>
+              <blockquote className="text-[#2d4a35] text-sm sm:text-base">
+                “{t.quote}”
+              </blockquote>
+              <figcaption className="mt-2 text-xs text-[#2d4a35]/70">
+                — {t.name}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* FAQ (always expanded) */}
       <section className="relative z-10 max-w-5xl mx-auto px-5 pt-6 pb-20">
         <h2 className="text-xl sm:text-2xl text-[#2d4a35] font-extrabold mb-4 text-center">
           FAQ
@@ -347,10 +372,12 @@ export default function LandingCustom() {
           ].map((item) => (
             <div
               key={item.q}
-              className="rounded-xl bg-white border border-[#4a7c59]/30 p-4"
+              className="rounded-2xl bg-white border border-[#4a7c59]/30 p-4"
             >
               <h3 className="text-[#2d4a35] font-semibold">{item.q}</h3>
-              <p className="mt-2 text-sm text-[#2d4a35]/90">{item.a}</p>
+              <p className="mt-2 text-sm sm:text-base text-[#2d4a35]/90">
+                {item.a}
+              </p>
             </div>
           ))}
         </div>
@@ -358,7 +385,7 @@ export default function LandingCustom() {
         <div className="mt-6 flex justify-center">
           <Link
             href="/services"
-            className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
+            className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition-colors duration-200"
           >
             Learn More
           </Link>
@@ -371,7 +398,7 @@ export default function LandingCustom() {
           <Link
             href="/contact"
             onClick={handleBookClick}
-            className="basis-2/3 text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-3 py-2.5 rounded-full text-sm font-bold shadow-md transition"
+            className="basis-2/3 text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-3 py-2.5 rounded-full text-sm font-bold shadow-md transition-colors duration-200"
           >
             Book Your Free First Visit!
           </Link>
@@ -379,7 +406,7 @@ export default function LandingCustom() {
             <a
               href={`tel:+1${PHONE}`}
               onClick={handleCallClick}
-              className="basis-1/3 inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-full border border-[#4a7c59]/40 text-[#2d4a35] bg-white text-sm font-semibold shadow-sm"
+              className="basis-1/3 inline-flex items-center justify-center gap-2 px-3 py-2.5 rounded-full border border-[#4a7c59]/40 text-[#2d4a35] bg-white text-sm font-semibold shadow-sm hover:bg-gray-50 transition-colors duration-200"
               aria-label="Call now"
             >
               <Phone className="w-5 h-5" />
@@ -389,13 +416,14 @@ export default function LandingCustom() {
         </div>
       </div>
 
+      {/* STICKY DESKTOP CTA (bottom-right) */}
       <div className="hidden md:block fixed bottom-6 right-6 z-40">
         <div className="flex flex-col gap-3 items-stretch">
           <Link
             href="/contact"
             onClick={handleBookClick}
             aria-label="Book a Free First Visit"
-            className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg transition"
+            className="inline-block text-center bg-[#4a7c59] hover:bg-[#3d694b] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg whitespace-nowrap transition-all duration-200 transform hover:-translate-y-0.5"
           >
             Get your 1st Visit for FREE
           </Link>
@@ -406,7 +434,7 @@ export default function LandingCustom() {
               onClick={handleCallClick}
               aria-label="Call (805) - 404 - 9981"
               title="Call (805) - 404 - 9981"
-              className="inline-flex items-center justify-center gap-2 text-[#2d4a35] bg-white border border-[#4a7c59]/40 px-5 py-3 rounded-full text-base font-semibold shadow-sm hover:shadow transition"
+              className="inline-flex items-center justify-center gap-2 text-[#2d4a35] bg-white border border-[#4a7c59]/40 px-5 py-3 rounded-full text-base font-semibold shadow-sm hover:bg-gray-50 transition-all duration-200 transform hover:-translate-y-0.5"
             >
               <Phone className="w-5 h-5" />
               <span className="whitespace-nowrap text-lg">
