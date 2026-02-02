@@ -7,7 +7,6 @@ import { Analytics } from "@vercel/analytics/react";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import ClarityScript from "./components/clarityscript";
-import MetaScript from "./components/metascript";
 
 const dancingScript = Dancing_Script({
   subsets: ["latin"],
@@ -39,7 +38,6 @@ export default function RootLayout({
           />
         </Head>
         <ClarityScript />
-        <MetaScript />
 
         {/* Navbar */}
 
